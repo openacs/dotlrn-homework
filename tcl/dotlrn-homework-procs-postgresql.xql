@@ -77,7 +77,9 @@
        select content_item__relate(
                :homework_file_id,
                :correction_file_id,
-               'homework_correction'
+               'homework_correction',
+               null,
+               'cr_item_rel'
        );
         
    </querytext>
