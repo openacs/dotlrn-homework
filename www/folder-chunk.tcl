@@ -78,12 +78,13 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
         # Strip off the user_id 
         set pretty_name [dotlrn_homework::decode_name $name]
 
+
         # If the user can read the file the user can read the file's details
         set view_details_url "${url}file?[export_vars {folder_id {file_id $object_id}}]"
 
         # And download the latest revision
         set file_storage_url [dotlrn_homework::get_file_storage_url]
-        set download_url "${file_storage_url}/download/index?[export_vars {version_id}]"
+        set download_url "${file_storage_url}/download/$title?[export_vars {version_id}]"
 
         # Admin and students can read correction files but only an admin can add one ...
         if { ![string equal $homework_file_id ""] } {

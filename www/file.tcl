@@ -62,7 +62,7 @@ set file_storage_url [dotlrn_homework::get_file_storage_url]
 
 set action_exists_p 0
 db_multirow -extend {download_url} version version_info {}  {
-    set download_url "${file_storage_url}/download/index?[export_vars {version_id}]"
+    set download_url "${file_storage_url}/download/$title?[export_vars {version_id}]"
     if { [string is true $delete_p] } {
         set action_exists_p 1
     }
