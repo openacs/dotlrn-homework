@@ -10,7 +10,7 @@
               nvl(f.label, fs_tree.name) as name,
               fs_tree.live_revision as version_id,
               fs_tree.content_type,
-              r.content_length,
+              r.content_length, r.title,
               fs_tree.parent_id as folder_id,
               content_item.get_path(o.object_id) as item_path,
               lpad(' ',(the_level - 1), ' ') as spaces,

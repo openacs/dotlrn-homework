@@ -28,16 +28,16 @@ ad_require_permission $folder_id write
 
 if { $homework_file_id == 0 } {
     set page_title "[_ dotlrn-homework.lt_submit_new_file]"
-    set context_bar {"[_ dotlrn-homework.lt_upload_new_as]"}
+    set context_bar [list [_ dotlrn-homework.lt_upload_new_as]]
 } else {
     set page_title "[_ dotlrn-homework.lt_submit_comm]"
-    set context_bar {"[_ dotlrn-homework.lt_upload_comm]"}
+    set context_bar [list "[_ dotlrn-homework.lt_upload_comm]"]
 }
 
 ad_form -name homework_form -html { enctype multipart/form-data } -export { return_url folder_id homework_file_id } -form {
     file_id:key
-    {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}}
-    {-section "<font size=\"-1\">[_ dotlrn-homework.lt_use_browse]</font><p>&nbsp;"}
+    {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}
+    }
 }
 
 if { $homework_file_id == 0 } {

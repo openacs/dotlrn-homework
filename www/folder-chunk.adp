@@ -54,7 +54,7 @@
           <td colspan="3"><a href="@folders.contents_url@">@folders.name@</a></td>
       </if>
       <else>
-          <td align="left">@folders.spaces;noquote@<img border="0" src="@file_storage_url@/graphics/file.gif"></td>
+          <td align="left">@folders.spaces;noquote@<a href="@folders.download_url@"><img border="0" src="@file_storage_url@/graphics/file.gif"></a></td>
           <td><a href="@folders.download_url@">@folders.pretty_name@</a></td>
           <td>
             <if @show_users_p@ true>

@@ -10,7 +10,7 @@
               coalesce(f.label, fs_tree.name) as name,
               fs_tree.live_revision as version_id,
               fs_tree.content_type,
-              r.content_length,
+              r.content_length, r.title,
               fs_tree.parent_id as folder_id,
               lpad(' ',(tree_level(fs_tree.tree_sortkey) - 1), ' ') as spaces,
               rels.related_object_id as homework_file_id,
@@ -27,7 +27,7 @@
               join acs_objects o on (o.object_id = fs_tree.item_id)
               left join cr_folders f on (f.folder_id = fs_tree.item_id)
               left join persons p on (p.person_id = o.creation_user)
-              left join cr_revisions r on (r.revision_id = fs_tree.item_id)
+              left join cr_revisions r on (r.revision_id = fs_tree.latest_revision)
               left join cr_item_rels rels on
                 (rels.item_id = o.object_id and rels.relation_tag = 'homework_correction')
             where not exists (select 1

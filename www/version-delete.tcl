@@ -78,6 +78,6 @@ if {[string equal $confirmed_p "t"]} {
 
     set title [dotlrn_homework::decode_name $title]
 
-    set context_bar {"[_ dotlrn-homework.lt_delete_version]"}
+    set context_bar [list [_ dotlrn-homework.lt_delete_version]]
     ad_return_template
 }

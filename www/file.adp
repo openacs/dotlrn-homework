@@ -15,7 +15,7 @@
     | <a href="@move_url@">#dotlrn-homework.Move#</a>
     </if>
   </if>
-  <if @delete_file_p@ true>
+  <if @delete_p@ true>
     | <a href="file-delete?file_id=@file_id@">#dotlrn-homework.lt_Delete_this_file_incl#</a>
   </if>]
   <p>
@@ -43,8 +43,8 @@
 
 <multiple name=version>
   <tr>
-    <td><img src="@file_storage_url@/graphics/file.gif">
-      <a href="@download_url@">@version.title@</a>
+    <td> <a href="@version.download_url@"><img src="@file_storage_url@/graphics/file.gif" border=0></a>
+      <a href="@version.download_url@">@version.title@</a>
     </td>
     <td>@version.author@</td>
     <td align=right>@version.content_size@</td>

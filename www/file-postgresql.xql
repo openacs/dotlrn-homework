@@ -7,9 +7,11 @@
       <querytext>
       
 	select person__name(o.creation_user) as owner,
-       		i.name as title,
-       		r.title as name,
-       		acs_permission__permission_p(:file_id,:user_id,'write') as write_p
+		i.name,
+		r.title,
+		acs_permission__permission_p(:file_id,:user_id,'write') as write_file_p,
+		acs_permission__permission_p(:file_id,:user_id,'delete') as delete_p,
+		i.item_id as correction_file_p
 	from   acs_objects o, cr_revisions r, cr_items i
 	where  o.object_id = :file_id
 	and    i.item_id   = o.object_id
@@ -26,7 +28,8 @@
        		r.mime_type as type,
        		to_char(o.last_modified,'YYYY-MM-DD HH24:MI') as last_modified,
        		r.description,
-       		r.content_length as content_size
+		r.content_length as content_size,
+		acs_permission__permission_p(:file_id,:user_id,'delete') as delete_p
 	from   acs_objects o, cr_revisions r, cr_items i
 	where  o.object_id = r.revision_id
 	and    r.item_id = i.item_id
