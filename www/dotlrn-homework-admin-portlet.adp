@@ -4,13 +4,12 @@
 <else>
   <ul>
     <li>
-      Alert me when homework files are updated: 
       <if @subscribe_p@ true>
-        <b>Yes</b> | <a href="@toggle_url@">No</a>
+        <b>Alert</b> | <a href="@toggle_url@">Do not alert</a>
       </if>
       <else>
-        <a href="@toggle_url@">Yes</a> | <b>No</b>
+        <a href="@toggle_url@">Alert</a> | <b>Do not alert</b>
       </else>
-      </a>
+      me when homework files are updated
   </ul>
 </else>
