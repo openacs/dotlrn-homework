@@ -68,7 +68,7 @@ if {[string equal $confirmed_p "t"] && [string equal $blocked_p "f"] } {
 
     set title [dotlrn_homework::decode_name $title]
 
-    set context_bar {"[_ dotlrn-homework.Delete]"}
+    set context_bar [list [_ dotlrn-homework.Delete]]
 
     ad_return_template
 }

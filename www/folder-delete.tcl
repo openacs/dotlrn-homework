@@ -39,6 +39,6 @@ if { [string equal $confirmed_p "t"] } {
 } else {
     # they still need to confirm
     set folder_name [db_string folder_name {}]
-    set context_bar {"[_ dotlrn-homework.Delete]"}
+    set context_bar [list [_ dotlrn-homework.Delete]]
     ad_return_template
 }

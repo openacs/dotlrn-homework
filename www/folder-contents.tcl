@@ -34,7 +34,7 @@ if { ![permission::permission_p -object_id $folder_id -privilege "read"] } {
 set list_of_folder_ids [list $folder_id]
 set package_id [ad_conn package_id]
 set folder_name [fs_get_folder_name $folder_id]
-set context_bar {"[_ dotlrn-homework.lt_one_folder]"}
+set context_bar [list [_ dotlrn-homework.lt_one_folder]]
 
 set community_id [dotlrn_community::get_community_id]
 set admin_p [permission::permission_p -object_id $folder_id -privilege "admin"]

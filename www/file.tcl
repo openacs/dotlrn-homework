@@ -40,7 +40,7 @@ ad_require_permission $file_id read
 #set templating datasources
 
 set user_id [ad_conn user_id]
-set context_bar {"[_ dotlrn-homework.lt_one_assignment]"}
+set context_bar [list [_ dotlrn-homework.lt_one_assignment]]
 set return_url "[ad_conn url]?[ad_conn query]"
 
 db_1row file_info {}

@@ -11,7 +11,7 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {parent_id:integer} {
 	if ![fs_folder_p $parent_id] {
-	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
+	    ad_complain [_ dotlrn-homework.lt_spec_parent]
 	}
     }
 } -properties {
@@ -20,8 +20,8 @@ ad_page_contract {
     page_title:onevalue
 }
 
-set context_bar {"[_ dotlrn-homework.lt_create_folder]"}
-set page_title "[_ dotlrn-homework.lt_create_subfolder]"
+set context_bar [list [_ dotlrn-homework.lt_create_folder]]
+set page_title [_ dotlrn-homework.lt_create_subfolder]
 
 set user_id [ad_conn user_id]
 set creation_ip [ad_conn peeraddr]

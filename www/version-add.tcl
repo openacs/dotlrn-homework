@@ -25,7 +25,7 @@ ad_page_contract {
 ad_require_permission $file_id write
 
 set page_title "[_ dotlrn-homework.lt_upload_new_version_of]"
-set context_bar {"[_ dotlrn-homework.lt_upload_new_ass_version]"}
+set context_bar [list [_ dotlrn-homework.lt_upload_new_ass_version]]
 
 ad_form -name homework_form -html { enctype multipart/form-data } -export { return_url name folder_id } -form {
     file_id:key
