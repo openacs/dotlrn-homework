@@ -45,7 +45,7 @@ ad_proc -private dotlrn_homework::apm_callbacks::package_install {} {
 
         notification::type::delivery_method_enable \
             -type_id $type_id \
-            -delivery_method_id [notification::delivery::get_id_from_name -name email]
+            -delivery_method_id [notification::delivery::get_id -short_name email]
 
         set impl_id \
             [acs_sc::impl::new_from_spec -spec {
@@ -70,7 +70,7 @@ ad_proc -private dotlrn_homework::apm_callbacks::package_install {} {
 
         notification::type::delivery_method_enable \
             -type_id $type_id \
-            -delivery_method_id [notification::delivery::get_id_from_name -name email]
+            -delivery_method_id [notification::delivery::get_id -short_name email]
 
         # Define the dotLRN Homework Applet
 
