@@ -3,7 +3,7 @@
 
 <h2>@title@</h2>
 
-@context_bar@
+@context_bar;noquote@
 
 <hr noshade>
 

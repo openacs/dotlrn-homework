@@ -163,7 +163,6 @@ namespace eval dotlrn_homework_admin_portlet {
          cf
     } {
     } {
-ns_log Notice "Huh? show..."
         portal::show_proc_helper \
             -package_key [my_package_key] \
             -config_list $cf \

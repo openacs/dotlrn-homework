@@ -28,7 +28,6 @@
               and f.folder_id(+) = fs_tree.item_id
               $qualify_by_owner
               and r.item_id(+) = fs_tree.item_id
-              and r.content_length(+) = fs_tree.item_id
               and rels.item_id(+) = o.object_id
               and rels.relation_tag(+) = 'homework_correction'
               and not exists (select 1

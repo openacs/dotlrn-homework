@@ -13,7 +13,7 @@
   </if>
 
   <if @folders:rowcount@ eq 0>
-     <tr><td><i>Folder is empty</i></td></tr>
+     <i>Folder is empty</i>
   </if>
   <else>
     <if @admin_p@ true and @show_header_p@ true>
@@ -55,7 +55,7 @@
           <tr class="z_light">
         </else>
       <if @folders.content_type@ eq "content_folder">
-          <td align="left">@folders.spaces@<img border="0" src="@file_storage_url@/graphics/folder.gif"></td>
+          <td align="left">@folders.spaces;noquote@<img border="0" src="@file_storage_url@/graphics/folder.gif"></td>
           <td colspan="3"><a href="@folders.contents_url@">@folders.name@</a></td>
       </if>
       <else>

@@ -22,7 +22,6 @@ ad_page_contract {
     }
 }
 
-ns_log Notice "Huh? type_id: $type_id subscribe_p: $subscribe_p request_id: $request_id"
 set community_id [dotlrn_community::get_community_id]
 dotlrn::require_user_admin_community -community_id $community_id
 
