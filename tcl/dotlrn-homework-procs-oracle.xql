@@ -11,7 +11,7 @@
      where exists (select name
                    from cr_items
                    where parent_id = :parent_folder_id
-                     and name = :title)
+                     and name = :encoded_filename)
    </querytext>
 </fullquery>
 
@@ -22,7 +22,7 @@
      begin
        :1 := file_storage.new_file (
                item_id => :file_id,
-               title => :title,
+               title => :encoded_filename,
                folder_id => :parent_folder_id,
                creation_user => :user_id,
                creation_ip => :creation_ip,
@@ -39,7 +39,7 @@
       
      begin
        :1 := file_storage.new_version (
-               filename => :filename,
+               filename => :title,
                description => :description,
                mime_type => :mime_type,
                item_id => :file_id,

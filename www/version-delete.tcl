@@ -70,11 +70,7 @@ if {[string equal $confirmed_p "t"]} {
 } else {
     # they still need to confirm
 
-    db_1row version_name "
-    select i.name as title,r.title as version_name 
-    from cr_items i,cr_revisions r
-    where i.item_id = r.item_id
-    and revision_id = :version_id"
+    db_1row version_name {}
 
     set title [dotlrn_homework::decode_name $title]
 

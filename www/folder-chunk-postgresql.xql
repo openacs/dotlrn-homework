@@ -22,8 +22,8 @@
                where cr_items2.item_id in ([join $list_of_folder_ids ", "])
                  and cr_items.tree_sortkey between
                    cr_items2.tree_sortkey and tree_right(cr_items2.tree_sortkey)
-                 and tree_level(cr_items.tree_sortkey) > :min_level
-                 and tree_level(cr_items.tree_sortkey) <= :max_level + 1) fs_tree
+                 and tree_level(cr_items.tree_sortkey) >= :min_level + 2
+                 and tree_level(cr_items.tree_sortkey) <= :max_level + 2) fs_tree
               join acs_objects o on (o.object_id = fs_tree.item_id)
               left join cr_folders f on (f.folder_id = fs_tree.item_id)
               left join persons p on (p.person_id = o.creation_user)

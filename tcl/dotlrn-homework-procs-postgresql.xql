@@ -10,7 +10,7 @@
      where exists (select name
                    from cr_items
                    where parent_id = :parent_folder_id
-                     and name = :title)
+                     and name = :encoded_filename)
 
    </querytext>
 </fullquery>
@@ -20,7 +20,7 @@
    <querytext>
 
        select file_storage__new_file (
-               :title,
+               :encoded_filename,
                :parent_folder_id,
                :user_id,
                :creation_ip,
@@ -36,7 +36,7 @@
    <querytext>
 
        select file_storage__new_version (
-               :filename,
+               :title,
                :description,
                :mime_type,
                :file_id,

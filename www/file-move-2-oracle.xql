@@ -9,7 +9,9 @@
 	begin
     		file_storage.move_file (
     			file_id => :file_id,
-    			target_folder_id => :parent_id
+    			target_folder_id => :parent_id,
+                        creation_user => :creation_user,
+                        creation_ip => :creation_ip
     			);
 	end;
 
@@ -22,7 +24,9 @@
 	begin
     		file_storage.move_file (
     			file_id => :correction_file_id,
-    			target_folder_id => :parent_id
+    			target_folder_id => :parent_id,
+                        creation_user => :creation_user,
+                        creation_ip => :creation_ip
     			);
 	end;
 

@@ -102,10 +102,25 @@ namespace eval dotlrn_homework {
                 set homework_user_id $user_id
             }
 
-            set title [encode_name -user_id $homework_user_id $title]
+            set encoded_filename [encode_name -user_id $homework_user_id $filename]
 
             if { [db_0or1row check_duplicate {}]} {
-                return -code error "[_ dotlrn-homework.lt_file_named]"
+
+		# AG: Make a reasonable attempt at avoiding collisions by
+		# converting a duplicate filename foo.txt to foo-2.txt,
+		# foo-3.txt and so on.
+		set success_p 0
+		set saved_filename $encoded_filename
+		for {set i 2} {$i < 11} {incr i} {
+		    set encoded_filename "[file rootname $saved_filename]-${i}[file extension $saved_filename]"
+		    if { ![db_0or1row check_duplicate {}]} {
+			set success_p 1
+			break
+		    }
+		}
+		if { !$success_p } {
+		    return -code error "[_ dotlrn-homework.lt_file_named]"
+		}
             }
 
             db_exec_plsql new_lob_file {}
@@ -145,7 +160,14 @@ namespace eval dotlrn_homework {
 
             }
 
-        }
+        } else {
+
+	    # When updating we simply query for the title of the live
+	    # revision.  The title is used by the new_version query
+	    # below.
+	    set title [db_string live_version_title {}]
+
+	}
 
         # Grab key for new revision
         set revision_id [db_exec_plsql new_version {}]

@@ -7,7 +7,7 @@
 <form method=GET action="file-move-2">
 <input type=hidden name=file_id value="@file_id@">
 
-<include src="/packages/file-storage/www/folder-list" file_id="@file_id@">
+<include src="/packages/file-storage/www/folder-list" file_id="@file_id@" base_url="file-move-2">
 <p>
 <input type=submit value="#dotlrn-homework.Move#">
 </form>

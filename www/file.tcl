@@ -45,6 +45,7 @@ set return_url "[ad_conn url]?[ad_conn query]"
 
 db_1row file_info {}
 set name [dotlrn_homework::decode_name $name]
+
 set version_add_url "version-add?[export_vars {return_url folder_id file_id name}]"
 set move_url "file-move?[export_vars {file_id name}]"
 
@@ -62,7 +63,9 @@ set file_storage_url [dotlrn_homework::get_file_storage_url]
 
 set action_exists_p 0
 db_multirow -extend {download_url} version version_info {}  {
-    set download_url "${file_storage_url}/download/$title?[export_vars {version_id}]"
+    set version_name [dotlrn_homework::decode_name $version_name]
+
+    set download_url "${file_storage_url}/download/[ns_urlencode $version_name]?[export_vars {version_id}]"
     if { [string is true $delete_p] } {
         set action_exists_p 1
     }

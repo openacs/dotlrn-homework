@@ -18,6 +18,17 @@
    </querytext>
 </fullquery>
 
+<fullquery name="dotlrn_homework::new.live_version_title">      
+   <querytext>
+
+     select r.title
+     from cr_revisions r, cr_items i
+     where i.item_id = :file_id
+       and i.content_type = 'file_storage_object'
+       and r.revision_id = i.live_revision
+            
+   </querytext>
+</fullquery>
  
 <fullquery name="dotlrn_homework::new.fs_content_size">      
    <querytext>

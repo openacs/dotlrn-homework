@@ -61,10 +61,7 @@ if {[string equal $confirmed_p "t"] && [string equal $blocked_p "f"] } {
 } else {
     # they need to confirm that they really want to delete the file
 
-    db_1row file_name "
-    	select name as title
-    	from   cr_items
-    	where  item_id = :file_id"
+    db_1row file_name {}
 
     set title [dotlrn_homework::decode_name $title]
 
