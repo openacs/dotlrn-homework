@@ -1,1 +1,0 @@
-insert into cr_type_relations  (content_type,target_type,relation_tag) values ('file_storage_object','file_storage_object','homework_correction') where 'homework_correction' not in (select relation_tag from cr_type_relations)
