@@ -1,0 +1,83 @@
+ad_page_contract {
+    confirmation page for version deletion
+
+    @author Kevin Scaldeferri (kevin@arsdigita.com)
+    @creation-date 10 November 2000
+    @cvs-id $Id$
+} {
+    version_id:integer,notnull
+    {confirmed_p "f"}
+} -validate {
+    valid_version -requires {version_id} {
+	if ![fs_version_p $version_id] {
+	    ad_complain "The specified version is not valid."
+	}
+    }
+} -properties {
+    version_id:onevalue
+    version_name:onevalue
+    title:onevalue
+    context_bar:onevalue
+}
+
+# check for delete permission on the version
+
+ad_require_permission $version_id delete
+
+db_1row item_select "
+select item_id
+from   cr_revisions
+where  revision_id = :version_id"
+
+if {[string equal $confirmed_p "t"]} {
+    # they have confirmed that they want to delete the version
+
+    db_transaction {
+
+        # DRB: damned permissions table has no "on delete cascade" and file storage
+        # delete assumes there are perms on the revision itself.   This code breaks
+        # the permissions abstraction but some day, 4.7 perhaps, we'll have proper
+        # referential integrity operators in at least some of the datamodel
+
+        db_dml version_perms_delete {}
+
+        set parent_id [db_exec_plsql delete_version "
+            begin
+              :1 := file_storage.delete_version(:item_id,:version_id);
+            end;"
+        ]
+
+        if {$parent_id > 0} {
+
+	    # Delete the item if there is no more revision. We do this here only because of PostgreSQL's RI bug
+	    db_exec_plsql delete_file "
+	        begin
+	          file_storage.delete_file(:item_id);
+	        end;"
+
+        }
+
+    }
+
+    if {$parent_id > 0} {
+	# Redirect to the folder, instead of the latest revision (which does not exist anymore)
+	ad_returnredirect "folder-contents?[export_vars {{folder_id $parent_id}}]"
+    } else {
+	# Ok, we don't have to do anything fancy, just redirect to th last revision
+	ad_returnredirect "file?[export_vars {{file_id $item_id} {folder_id $parent_id}}]"
+    }
+
+} else {
+    # they still need to confirm
+
+    db_1row version_name "
+    select i.name as title,r.title as version_name 
+    from cr_items i,cr_revisions r
+    where i.item_id = r.item_id
+    and revision_id = :version_id"
+
+    set title [dotlrn_homework::decode_name $title]
+
+    set context_bar {"Delete Version"}
+    ad_return_template
+}
