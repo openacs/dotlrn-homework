@@ -25,6 +25,11 @@
         <requires url="file-storage" version="4.1"/>
         <requires url="new-portal" version="0.1a"/>
 
+        <callbacks>
+            <callback type="after-install"  proc="dotlrn_homework::apm_callbacks::package_install"/>
+            <callback type="before-uninstall"  proc="dotlrn_homework::apm_callbacks::package_uninstall"/>
+        </callbacks>
+
         <files>
             <file type="package_spec" path="dotlrn-homework.info"/>
             <file type="data_model" db_type="oracle" path="sql/oracle/dotlrn-homework-applet-create.sql"/>
