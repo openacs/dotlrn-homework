@@ -52,9 +52,9 @@
    <querytext>
 
      update cr_revisions
-     set content = empty_blob()
+     set lob = [set __lob_id [db_string get_lob_id "select empty_lob()"]]
      where revision_id = :revision_id
-     returning content into :1
+
             
    </querytext>
 </fullquery>
