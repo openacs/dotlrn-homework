@@ -89,7 +89,7 @@ namespace eval dotlrn_homework {
         # The content repository is kinda stupid about mime types,
         # so we have to check if we know about this one and possibly 
         # add it.
-        set mime_type [fs_maybe_create_new_mime_type $filename]
+        set mime_type [cr_filename_to_mime_type $filename]
 
         # Get the storage type
         set indb_p [ad_decode [ad_parameter "StoreFilesInDatabaseP" -package_id [ad_conn package_id]] 1 "t" "f"]
