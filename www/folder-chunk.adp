@@ -13,7 +13,7 @@
   </if>
 
   <if @folders:rowcount@ eq 0>
-     <i>Folder is empty</i>
+     <i>#dotlrn-homework.Folder_is_empty#</i>
   </if>
   <else>
     <if @admin_p@ true and @show_header_p@ true>
@@ -23,28 +23,23 @@
          # it.
       %>
 
-      <p>There are two ways to comment on students' files: 1) upload a separate/new file or
-      2) make comments directly in the student's file.  For #1, upload your file from this page.
-      For #2, first download/open and save the file to your computer.  When finished, save the
-      file and then return to the Homework folder and upload your comments.
-      <p>TAs and professors can upload different versions of comments from the Details page
-      and can use the Version notes text box to differentiate between comments files.
-      <p>For more information, read the Admin FAQ on the class Control Panel page or refer
-      to the Handbook.
+      <p>#dotlrn-homework.lt_There_are_two_ways_to#
+      <p>#dotlrn-homework.lt_TAs_and_professors_ca#
+      <p>#dotlrn-homework.lt_For_more_information_#
       <p>
     </if>
     <table border="0" class="table-display" cellpadding="5" cellspacing="0" width="85%">
       <if @show_header_p@ true>
         <tr class="table-header">
           <td>&nbsp;</td>
-          <td>Title</td>
+          <td>#dotlrn-homework.Title#</td>
           <if @show_users_p@ true>
-            <td>Student</td>
+            <td>#dotlrn-homework.Student#</td>
           </if>
 	<else>
 	<td></td>
 	</else>
-          <td>Action</td>
+          <td>#dotlrn-homework.Action#</td>
         </tr>
       </if>
       <multiple name="folders">
@@ -59,7 +54,7 @@
           <td colspan="3"><a href="@folders.contents_url@">@folders.name@</a></td>
       </if>
       <else>
-          <td align="left">@folders.spaces@<img border="0" src="@file_storage_url@/graphics/file.gif"></td>
+          <td align="left">@folders.spaces;noquote@<img border="0" src="@file_storage_url@/graphics/file.gif"></td>
           <td><a href="@folders.download_url@">@folders.pretty_name@</a></td>
           <td>
             <if @show_users_p@ true>
@@ -67,12 +62,12 @@
             </if>
           </td>
           <td><small>
-             <a href="@folders.view_details_url@">Details</a> 
+             <a href="@folders.view_details_url@">#dotlrn-homework.New_Comments#</a> 
              <if @folders.upload_correction_url@ not nil>
-               | <a href="@folders.upload_correction_url@">New Comments</a>
+               | <a href="@folders.upload_correction_url@">#dotlrn-homework.View#</a>
              </if>
              <if @folders.view_correction_details_url@ not nil>
-               | <a href="@folders.view_correction_details_url@">View<if @admin_p@ true>/Edit</if> Comments</a>
+               | <a href="@folders.view_correction_details_url@">#dotlrn-homework.View_1#<if @admin_p@ true>#dotlrn-homework.lt_or_edit#</if> #dotlrn-homework.Comments#</a>
              </if>
           </small></td>
       </else>
@@ -80,3 +75,4 @@
       </multiple>
     </table>
   </else>
+

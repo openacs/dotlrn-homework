@@ -105,7 +105,7 @@ namespace eval dotlrn_homework {
             set title [encode_name -user_id $homework_user_id $title]
 
             if { [db_0or1row check_duplicate {}]} {
-                return -code error "A file named \"$title\" already exists in this folder"
+                return -code error "[_ dotlrn-homework.lt_file_named]"
             }
 
             db_exec_plsql new_lob_file {}
@@ -219,15 +219,18 @@ namespace eval dotlrn_homework {
 
         db_1row get_alert_info {}
 
+	set decoded_name [decode_name $name]
+
         set message "
 
-A file named \"[decode_name $name]\" has been uploaded to the folder \"$folder_name\" by
-\"$student_name\".
+[_ dotlrn-homework.lt_a_file_named_1]
 
 "
+
         notification::new -type_id [notification::type::get_type_id -short_name homework_upload] \
-            -object_id $folder_id -response_id $folder_id -notif_subject "Homework upload alert" \
+            -object_id $folder_id -response_id $folder_id -notif_subject "[_ dotlrn-homework.lt_homework_upload]" \
             -notif_text $message
+
 
     }
 
@@ -244,15 +247,17 @@ A file named \"[decode_name $name]\" has been uploaded to the folder \"$folder_n
 
         db_1row get_alert_info {}
 
+	set decoded_name [decode_name $name]
+
         set message "
 
-$admin_name has uploaded comments to your homework file named \"[decode_name $name]\" in the
-homework folder \"$folder_name\".
+[_ dotlrn-homework.lt_admin_has_uploaded]"
 
-"
+
         notification::new -type_id [notification::type::get_type_id -short_name correction_upload] \
-            -object_id $homework_file_id -response_id $homework_file_id -notif_subject "Correction file alert" \
+            -object_id $homework_file_id -response_id $homework_file_id -notif_subject "[_ dotlrn-homework.lt_correction_file_alert]" \
             -notif_text $message
+
 
     }
 

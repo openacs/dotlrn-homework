@@ -10,13 +10,13 @@ ad_page_contract {
 } -validate {
     valid_file -requires {file_id} {
 	if ![fs_file_p $file_id] {
-	    ad_complain "The specified file is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
 
     valid_folder -requires {parent_id} {
 	if ![fs_folder_p $parent_id] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
 }
@@ -75,7 +75,7 @@ db_transaction {
     }
 
 } on_error {
-    ad_return_complaint 1 "The <a href=\"index?folder_id=$parent_id\">folder</a> you selected already contains a file with the same name. " 
+    ad_return_complaint 1 "[_ dotlrn-homework.lt_folder_already_contains] " 
     return
 }
 

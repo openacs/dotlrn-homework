@@ -34,16 +34,16 @@ multirow create toolbar label target
 if { [llength $list_of_folder_ids] == 1 } {
     set folder_id [lindex $list_of_folder_ids 0]
     if { $show_upload_url_p } {
-        template::multirow append toolbar "Submit a new Assignment" \
+        template::multirow append toolbar "[_ dotlrn-homework.lt_submit_new_assign]" \
             "${url}file-add?[export_vars {folder_id return_url}]"
     }
     if { $admin_actions_p } {
-        template::multirow append toolbar "Create new folder" \
+        template::multirow append toolbar "[_ dotlrn-homework.lt_create_new_folder]" \
             "${url}folder-create?[export_vars {{parent_id $folder_id} return_url}]"
 
         # Even a community admin can't delete the root homework folder
         if { ![string equal $folder_id [fs::get_root_folder -package_id [ad_conn package_id]]] } {
-            template::multirow append toolbar "Delete folder" \
+            template::multirow append toolbar "[_ dotlrn-homework.lt_delete_folder]" \
                 "${url}folder-delete?[export_vars {folder_id}]"
         }
     }
@@ -90,7 +90,7 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
             set view_correction_details_url "${url}file?[export_vars {folder_id {file_id $homework_file_id} {show_all_versions_p "t"}}]"
         } elseif { $admin_p } {
             set upload_correction_url \
-                "${url}file-add?[export_vars {folder_id return_url {name "$pretty_name - Comments"} {homework_file_id $object_id}}]"
+                "${url}file-add?[export_vars {folder_id return_url {name "$pretty_name - [_ dotlrn-homework.Comments]"} {homework_file_id $object_id}}]"
         }
     }
 }

@@ -11,7 +11,7 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {parent_id:integer} {
 	if ![fs_folder_p $parent_id] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
 } -properties {
@@ -20,8 +20,8 @@ ad_page_contract {
     page_title:onevalue
 }
 
-set context_bar {"Create Folder"}
-set page_title "Create Subfolder"
+set context_bar {"[_ dotlrn-homework.lt_create_folder]"}
+set page_title "[_ dotlrn-homework.lt_create_subfolder]"
 
 set user_id [ad_conn user_id]
 set creation_ip [ad_conn peeraddr]
@@ -38,7 +38,7 @@ ad_require_permission $parent_id admin
 ad_form -name homework_form -form {
     {return_url:text(hidden)         {value $return_url}}
     {parent_id:text(hidden)          {value $parent_id}}
-    {folder_name:text                {label "Folder Name"}
+    {folder_name:text                {label "[_ dotlrn-homework.lt_folder_name]"}
                                      {html {size 20}}}
 } -on_submit {
 

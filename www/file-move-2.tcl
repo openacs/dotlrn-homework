@@ -10,13 +10,13 @@ ad_page_contract {
 } -validate {
     valid_file -requires {file_id} {
 	if ![fs_file_p $file_id] {
-	    ad_complain "The specified file is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
 
     valid_folder -requires {parent_id} {
 	if ![fs_folder_p $parent_id] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
 }

@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if ![fs_folder_p $folder_id] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
 } -properties {
@@ -24,20 +24,20 @@ ad_page_contract {
 # check for write permission on the file
 ad_require_permission $file_id write
 
-set page_title "Upload New Version of $name"
-set context_bar {"Upload New Assignment Version"}
+set page_title "[_ dotlrn-homework.lt_upload_new_version_of]"
+set context_bar {"[_ dotlrn-homework.lt_upload_new_ass_version]"}
 
 ad_form -name homework_form -html { enctype multipart/form-data } -export { return_url name folder_id } -form {
     file_id:key
-    {upload_file:file                    {label "Version filename"}}
-    {-section "<font size=-1>Use the \"Browse...\" button to locate your file, then click \"Open\"</font><p>&nbsp;"}
-    {description:text(textarea),optional {label "Version notes"}
+    {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}}
+    {-section "<font size=\"-1\">[_ dotlrn-homework.lt_use_browse]</font><p>&nbsp;"}
+    {description:text(textarea),optional {label "[_ dotlrn-homework.lt_version_notes]"}
                                          {html {rows 5 cols 50 wrap physical}}}
 } -edit_request {
 } -validate {
     {upload_file
       { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [ad_parameter "MaximumFileSize"] }
-      "Your file is larger than the maximum file size allowed on this system ([util_commify_number [ad_parameter MaximumFileSize]] bytes)"
+      "[_ dotlrn-homework.lt_your_file_is] ([util_commify_number [ad_parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
     }
 } -edit_data {
 

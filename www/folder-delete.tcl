@@ -12,13 +12,13 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if ![fs_folder_p $folder_id] {
-	    ad_complain "The specified folder is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_folder]"
 	}
     }
 
     no_children -requires {not_root_folder} {
 	if { [db_string child_count {}] > 0 } {
-	    ad_complain "We're sorry, but at the moment you cannot delete folders unless they are already empty."
+	    ad_complain "[_ dotlrn-homework.lt_were_sorry]"
 	}
     }
 } -properties {
@@ -39,6 +39,6 @@ if { [string equal $confirmed_p "t"] } {
 } else {
     # they still need to confirm
     set folder_name [db_string folder_name {}]
-    set context_bar {"Delete"}
+    set context_bar {"[_ dotlrn-homework.Delete]"}
     ad_return_template
 }

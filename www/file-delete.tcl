@@ -10,7 +10,7 @@ ad_page_contract {
 } -validate {
     valid_file -requires {file_id} {
 	if ![fs_file_p $file_id] {
-	    ad_complain "The specified file is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
 } -properties {
@@ -68,7 +68,7 @@ if {[string equal $confirmed_p "t"] && [string equal $blocked_p "f"] } {
 
     set title [dotlrn_homework::decode_name $title]
 
-    set context_bar {"Delete"}
+    set context_bar {"[_ dotlrn-homework.Delete]"}
 
     ad_return_template
 }

@@ -12,7 +12,7 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if ![fs_folder_p $folder_id] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
 } -properties {
@@ -27,22 +27,22 @@ ad_require_permission $folder_id write
 # to an existing homework file, or a new home work file
 
 if { $homework_file_id == 0 } {
-    set page_title "Submit New Assignment File"
-    set context_bar {"Upload New Assignment"}
+    set page_title "[_ dotlrn-homework.lt_submit_new_file]"
+    set context_bar {"[_ dotlrn-homework.lt_upload_new_as]"}
 } else {
-    set page_title "Submit Comments"
-    set context_bar {"Upload Comments"}
+    set page_title "[_ dotlrn-homework.lt_submit_comm]"
+    set context_bar {"[_ dotlrn-homework.lt_upload_comm]"}
 }
 
 ad_form -name homework_form -html { enctype multipart/form-data } -export { return_url folder_id homework_file_id } -form {
     file_id:key
-    {upload_file:file                    {label "Version filename"}}
-    {-section "<font size=-1>Use the \"Browse...\" button to locate your file, then click \"Open\"</font><p>&nbsp;"}
+    {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}}
+    {-section "<font size=\"-1\">[_ dotlrn-homework.lt_use_browse]</font><p>&nbsp;"}
 }
 
 if { $homework_file_id == 0 } {
     ad_form -extend -name homework_form -form {
-        {name:text                           {label "Title"}
+        {name:text                           {label "[_ dotlrn-homework.Title]"}
                                              {html {size 30}}}
     }
 } else {
@@ -51,12 +51,12 @@ if { $homework_file_id == 0 } {
 
 ad_form -extend -name homework_form -form {
 
-    {description:text(textarea),optional {label "Description"}
+    {description:text(textarea),optional {label "[_ dotlrn-homework.Description]"}
                                          {html {rows 5 cols 50 wrap physical}}}
 } -validate {
     {upload_file
       { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [ad_parameter "MaximumFileSize"] }
-      "Your file is larger than the maximum file size allowed on this system ([util_commify_number [ad_parameter MaximumFileSize]] bytes)"
+      "[_ dotlrn-homework.lt_your_file_is] ([util_commify_number [ad_parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
     }
 } -new_data {
 

@@ -46,7 +46,7 @@ namespace eval dotlrn_homework_applet {
     } {
         returns the pretty name
     } {
-        return "Homework"
+        return "[_ dotlrn-homework.pretty_name]"
     }
 
     ad_proc -public add_applet {
@@ -82,7 +82,7 @@ namespace eval dotlrn_homework_applet {
         set community_name [dotlrn_community::get_community_name $community_id]
         set folder_id [fs::get_root_folder -package_id $package_id]
 
-        fs::rename_folder -folder_id $folder_id -name "${community_name}'s Homework Folder"
+        fs::rename_folder -folder_id $folder_id -name "[_ dotlrn-homework.lt_homework_folder]"
 
         set node_id [site_node::get_node_id_from_object_id -object_id $package_id]
         site_node_object_map::new -object_id $folder_id -node_id $node_id
@@ -259,7 +259,7 @@ namespace eval dotlrn_homework_applet {
         switch $event {
             rename {
                 fs::rename_folder -folder_id [fs::get_root_folder -package_id [get_package_id]] \
-                    -name "${new_value}'s Homework Folder"
+                    -name "[_ dotlrn-homework.lt_new_values]"
             }
         }
     }

@@ -10,7 +10,7 @@ ad_page_contract {
 } -validate {
     valid_version -requires {version_id} {
 	if ![fs_version_p $version_id] {
-	    ad_complain "The specified version is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_version]"
 	}
     }
 } -properties {
@@ -78,6 +78,6 @@ if {[string equal $confirmed_p "t"]} {
 
     set title [dotlrn_homework::decode_name $title]
 
-    set context_bar {"Delete Version"}
+    set context_bar {"[_ dotlrn-homework.lt_delete_version]"}
     ad_return_template
 }

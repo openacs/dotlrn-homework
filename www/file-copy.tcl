@@ -9,7 +9,7 @@ ad_page_contract {
 } -validate {
     valid_file -requires {file_id} {
 	if ![fs_file_p $file_id] {
-	    ad_complain "The specified file is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
 } -properties {
@@ -26,6 +26,6 @@ ad_require_permission $file_id read
 
 set file_name [dotlrn_homework::decode_name [db_string file_name {}]]
 
-set context_bar {"Copy"}
+set context_bar {"[_ dotlrn-homework.Copy]"}
 
 ad_return_template

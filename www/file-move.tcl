@@ -11,7 +11,7 @@ ad_page_contract {
 } -validate {
     valid_file -requires {file_id} {
 	if ![fs_file_p $file_id] {
-	    ad_complain "The specified file is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
 } -properties {
@@ -24,7 +24,7 @@ ad_page_contract {
 # right permission?)
 
 ad_require_permission $file_id write
-set context_bar "Move"
+set context_bar "[_ dotlrn-homework.Move]"
 set return_url "[ad_conn url]?[ad_conn query]"
 
 ad_return_template

@@ -17,7 +17,7 @@ ad_page_contract {
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if ![fs_folder_p $folder_id] {
-	    ad_complain "The specified parent folder is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
 }
@@ -33,7 +33,7 @@ if { $subscribe_p } {
     # Sanity check to make sure the db entries are set up correctly.
 
     if { [llength $intervals] != 1 || [llength $delivery_methods] != 1 } {
-        ad_return_error "Internal Error" "Interval or delivery method for homework notifications broken"
+        ad_return_error "[_ dotlrn-homework.lt_internal_error]" "[_ dotlrn-homework.lt_interval_or_del]"
     }
 
     # The get routines return a list of name/id pairs so extract the ids

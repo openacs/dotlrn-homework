@@ -16,7 +16,7 @@ ad_page_contract {
 } -validate {
     valid_file -requires {file_id} {
 	if ![fs_file_p $file_id] {
-	    ad_complain "The specified file is not valid."
+	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
 } -properties {
@@ -40,7 +40,7 @@ ad_require_permission $file_id read
 #set templating datasources
 
 set user_id [ad_conn user_id]
-set context_bar {"One Assignment"}
+set context_bar {"[_ dotlrn-homework.lt_one_assignment]"}
 set return_url "[ad_conn url]?[ad_conn query]"
 
 db_1row file_info {}
