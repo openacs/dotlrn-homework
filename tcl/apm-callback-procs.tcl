@@ -138,6 +138,6 @@ ad_proc -private dotlrn_homework::apm_callbacks::package_uninstall {} {
     acs_sc::impl::delete -contract_name NotificationType -impl_name homework_file_upload
     notification::type::delete -short_name correction_upload
     acs_sc::impl::delete -contract_name NotificationType -impl_name correction_file_upload
-    portal::datasource_delete -name homework_portlet
+    portal::datasource::delete -name homework_portlet
     acs_sc::impl::delete -contract_name dotlrn_applet -impl_name dotlrn_homework
 }
