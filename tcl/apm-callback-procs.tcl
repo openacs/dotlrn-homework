@@ -20,6 +20,14 @@ ad_proc -private dotlrn_homework::apm_callbacks::package_install {} {
 } {
     db_transaction {
 
+
+	# Define homework_correction relation
+	db_dml create_relation {
+	    insert into cr_type_relations 
+	    (content_type,target_type,relation_tag) 
+	    values ('file_storage_object','file_storage_object','homework_correction')
+	}
+
         # Define notifications for homework and correction file uploads
 
         set impl_id \
@@ -164,5 +172,13 @@ ad_proc -private dotlrn_homework::apm_callbacks::package_uninstall {} {
         acs_sc::impl::delete -contract_name dotlrn_applet -impl_name dotlrn_homework_applet
         portal::datasource::delete -name dotlrn_homework_portlet
         portal::datasource::delete -name dotlrn_homework_admin_portlet
+
+	db_dml delete_relation { 
+	      delete from cr_type_relations 
+	      where content_type = 'file-storage-object' and
+	      target_type = 'file-storage-object' and
+	     relation_tag = 'homework_correction'
+	}
+
     }
 }

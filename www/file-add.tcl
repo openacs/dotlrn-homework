@@ -36,8 +36,8 @@ if { $homework_file_id == 0 } {
 
 ad_form -name homework_form -html { enctype multipart/form-data } -export { return_url folder_id homework_file_id } -form {
     file_id:key
-    {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}}
-    {-section "<font size=\"-1\">[_ dotlrn-homework.lt_use_browse]</font><p>&nbsp;"}
+    {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}
+    }
 }
 
 if { $homework_file_id == 0 } {

@@ -30,7 +30,6 @@ set context_bar [list [_ dotlrn-homework.lt_upload_new_ass_version]]
 ad_form -name homework_form -html { enctype multipart/form-data } -export { return_url name folder_id } -form {
     file_id:key
     {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}}
-    {-section "<font size=\"-1\">[_ dotlrn-homework.lt_use_browse]</font><p>&nbsp;"}
     {description:text(textarea),optional {label "[_ dotlrn-homework.lt_version_notes]"}
                                          {html {rows 5 cols 50 wrap physical}}}
 } -edit_request {

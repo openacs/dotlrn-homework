@@ -8,7 +8,7 @@
 	select person.name(o.creation_user) as owner,
        		i.name,
        		acs_permission.permission_p(:file_id, :user_id, 'write') as write_file_p,
-                acs_permission.permission_p(:file_id, :user_id, 'delete') as delete_file_p,
+                acs_permission.permission_p(:file_id, :user_id, 'delete') as delete_p,
                 decode(cir.item_id, null, 'f', 't') as correction_file_p
 	from   acs_objects o, cr_revisions r, cr_items i, cr_item_rels cir
 	where  o.object_id = :file_id

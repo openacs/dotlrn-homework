@@ -15,7 +15,7 @@
     | <a href="@move_url@">#dotlrn-homework.Move#</a>
     </if>
   </if>
-  <if @delete_file_p@ true>
+  <if @delete_p@ true>
     | <a href="file-delete?file_id=@file_id@">#dotlrn-homework.lt_Delete_this_file_incl#</a>
   </if>]
   <p>
