@@ -27,7 +27,7 @@
               join acs_objects o on (o.object_id = fs_tree.item_id)
               left join cr_folders f on (f.folder_id = fs_tree.item_id)
               left join persons p on (p.person_id = o.creation_user)
-              left join cr_revisions r on (r.revision_id = fs_tree.item_id)
+              left join cr_revisions r on (r.revision_id = fs_tree.latest_revision)
               left join cr_item_rels rels on
                 (rels.item_id = o.object_id and rels.relation_tag = 'homework_correction')
             where not exists (select 1

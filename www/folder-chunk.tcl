@@ -65,11 +65,12 @@ if { $admin_p } {
 set show_users_p 0
 
 db_multirow -extend {pretty_name download_url upload_version_url view_details_url contents_url upload_correction_url view_correction_details_url} \
-            folders select_folder_contents {} {
-    regsub -all " " $spaces {\&nbsp;\&nbsp;} spaces
-    if { [string equal $content_type "content_folder"] } {
-        set contents_url "${url}folder-contents?[export_vars {{folder_id $object_id} return_url}]"
-    } else {
+    folders select_folder_contents {} {
+	
+	regsub -all " " $spaces {\&nbsp;\&nbsp;} spaces
+	if { [string equal $content_type "content_folder"] } {
+	    set contents_url "${url}folder-contents?[export_vars {{folder_id $object_id} return_url}]"
+	} else {
 
         if { $user_id != $creation_user } {
             set show_users_p 1
