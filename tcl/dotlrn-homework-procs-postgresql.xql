@@ -18,19 +18,15 @@
  
 <fullquery name="dotlrn_homework::new.new_lob_file">      
    <querytext>
-      FIX ME PLSQL
-FIX ME PLSQL
 
-     begin
-       :1 := file_storage__new_file (
-               item_id => :file_id,
-               title => :title,
-               folder_id => :parent_folder_id,
-               creation_user => :user_id,
-               creation_ip => :creation_ip,
-               indb_p => :indb_p
-             );
-     end;
+       select file_storage__new_file (
+               :title,
+               :parent_folder_id,
+               :user_id,
+               :creation_ip,
+               :indb_p,
+               :file_id
+       );
             
    </querytext>
 </fullquery>
@@ -38,26 +34,22 @@ FIX ME PLSQL
  
 <fullquery name="dotlrn_homework::new.new_version">      
    <querytext>
-      FIX ME PLSQL
-FIX ME PLSQL
 
-     begin
-       :1 := file_storage__new_version (
-               filename => :filename,
-               description => :description,
-               mime_type => :mime_type,
-               item_id => :file_id,
-               creation_user => :user_id,
-               creation_ip => :creation_ip
-             );
-     end;
+       select file_storage__new_version (
+               :filename,
+               :description,
+               :mime_type,
+               :file_id,
+               :user_id,
+               :creation_ip
+        );
+     
    </querytext>
 </fullquery>
 
  
 <fullquery name="dotlrn_homework::new.lob_content">      
    <querytext>
-      FIX ME LOB
 
      update cr_revisions
      set content = empty_blob()
@@ -81,16 +73,12 @@ FIX ME PLSQL
  
 <fullquery name="dotlrn_homework::add_correction_relation.relate">      
    <querytext>
-      FIX ME PLSQL
-FIX ME PLSQL
 
-     begin
-       :1 := content_item__relate(
-               item_id => :homework_file_id,
-               object_id => :correction_file_id,
-               relation_tag => 'homework_correction'
-             );
-     end;
+       select content_item__relate(
+               :homework_file_id,
+               :correction_file_id,
+               'homework_correction'
+       );
         
    </querytext>
 </fullquery>
