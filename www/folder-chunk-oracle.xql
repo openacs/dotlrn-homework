@@ -28,7 +28,7 @@
               and f.folder_id(+) = fs_tree.item_id
               $qualify_by_owner
               and r.item_id(+) = fs_tree.item_id
-	      and r.item_id(+) = fs_tree.live_revision 
+	      and r.revision_id(+) = fs_tree.live_revision 
               and rels.item_id(+) = o.object_id
               and rels.relation_tag(+) = 'homework_correction'
               and not exists (select 1
