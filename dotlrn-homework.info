@@ -13,7 +13,7 @@
         <release-date>2004-03-10</release-date>
         <vendor url="http://www.furfly.net">furfly.net, LLC</vendor>
 
-        <provides url="dotlrn-homework" version="2.0.2"/>
+        <provides url="dotlrn-homework" version="2.0.3"/>
         <requires url="dotlrn" version="1.0"/>
         <requires url="dotlrn-fs" version="0.1a"/>
         <requires url="new-portal" version="0.1a"/>
