@@ -4,7 +4,7 @@
 <else>
   <ul>
     <li>
-      <if @subscribe_p@ true>
+      <if @subscribe_p@ false>
         <b>#dotlrn-homework.Alert#</b> | <a href="@toggle_url@">#dotlrn-homework.Do_not_alert#</a>
       </if>
       <else>

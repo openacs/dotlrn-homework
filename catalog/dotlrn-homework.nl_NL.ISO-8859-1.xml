@@ -64,7 +64,7 @@
   <msg key="lt_upload_new_ass_version">Nieuwe versie van huiswerktaak aanbieden</msg>
   <msg key="lt_Upload_New_Version_of">Nieuwe versie van %name% aanbieden</msg>
   <msg key="lt_upload_new_version_of">Nieuwe versie van %name% aanbieden</msg>
-  <msg key="lt_use_browse">Gebruik de knop \&quot;Bladeren...\&quot; om het bestand te vinden en klik daarna op \&quot;Openen\&quot;</msg>
+  <msg key="lt_use_browse">De knop \&quot;Bladeren\&quot; gebruiken om een bestand te vinden en dan op \&quot;Openen\&quot; klikken </msg>
   <msg key="lt_version_filename">Bestandsnaam</msg>
   <msg key="lt_version_notes">Opmerking bij deze versie</msg>
   <msg key="lt_were_sorry">Sorry, op dit moment kunnen mappen alleen worden verwijderd als ze geheel leeg zijn.</msg>
