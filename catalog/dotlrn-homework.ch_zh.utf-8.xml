@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message_catalog package_key="dotlrn-homework" package_version="0.1d" locale="ch_zh" charset="utf-8">
+
+  <msg key="Copy">拷贝</msg>
+  <msg key="lt_Contents_of_folder_na">%folder_name%内容</msg>
+  <msg key="lt_folder_name">文件夹名</msg>
+  <msg key="lt_internal_error">错误</msg>
+  <msg key="lt_one_folder">文件夹</msg>
+  <msg key="lt_your_file_is">你的文件超过系统设定的最大大小</msg>
+  <msg key="pretty_name">作业</msg>
+  <msg key="Student">学生</msg>
+  <msg key="Title">题目</msg>
+</message_catalog>
