@@ -3,6 +3,12 @@
 <queryset>
 <rdbms><type>oracle</type><version>8.1.6</version></rdbms>
 
+    <fullquery name="select_default_min_level">
+        <querytext>
+            select 2 as min_level from dual
+	</querytext>
+    </fullquery>
+
     <fullquery name="select_folder_contents">
         <querytext>
             select

@@ -41,13 +41,17 @@ set admin_p [permission::permission_p -object_id $folder_id -privilege "admin"]
 set show_upload_url_p [expr {!$admin_p && [permission::permission_p -object_id $folder_id -privilege "write"]}]
 set admin_actions_p 0
 
-set min_level 1
+#AG: In Oracle this query is a seemingly nonsensical "select 1 from dual".
+#The problem is, the db logic in PG is completely different and requires a query.
+#To avoid propagating these differences up to Tcl we use a query in Oracle too.
+set min_level [db_string select_default_min_level {}]
+
 if { $admin_p } {
     # Admin view is limited to the folder name due to the fact that the admin can see every
     # student's files
-    set max_level 1
+    set max_level $min_level
 } else {
-    set max_level 2
+    set max_level [expr $min_level + 1]
 }
 
 ad_return_template 
