@@ -45,6 +45,7 @@ ad_form -name homework_form -html { enctype multipart/form-data } -export { retu
         # Alert management.  Semantics are hardwired to Sloan's spec.  Eventually it would probably be nice
         # to make 'em configurable for non-admin users as they are now for admin users
 
+	set homework_file_id 0
         set homework_file_p [db_0or1row get_homework_info {}]
 
         dotlrn_homework::new -file_id $file_id -new_file_p 0 -description $description -upload_file $upload_file \
