@@ -17,12 +17,8 @@
         <vendor url="http://furfly.net">Furfly.net</vendor>
 
         <provides url="dotlrn-homework" version="0.1d"/>
-        <requires url="acs-kernel" version="4.5"/>
-        <requires url="acs-service-contract" version="4.2"/>
-        <requires url="acs-templating" version="4.1.2"/>
         <requires url="dotlrn" version="1.0"/>
         <requires url="dotlrn-fs" version="0.1a"/>
-        <requires url="file-storage" version="4.1"/>
         <requires url="new-portal" version="0.1a"/>
 
         <callbacks>
