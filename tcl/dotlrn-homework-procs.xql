@@ -35,12 +35,12 @@
    <querytext>
       
      select f.name, folder.label as folder_name,
-       u.first_names || ' ' || u.last_name as student_name
-     from cr_items f, cr_folders folder, cc_users u, acs_objects o
+       p.first_names || ' ' || p.last_name as student_name
+     from cr_items f, cr_folders folder, persons p, acs_objects o
      where f.item_id = :file_id
        and o.object_id = :file_id
        and folder.folder_id = :folder_id
-       and u.user_id = o.creation_user
+       and p.person_id = o.creation_user
 
    </querytext>
 </fullquery>
@@ -50,11 +50,11 @@
    <querytext>
       
      select f.name, folder.label as folder_name,
-       u.first_names || ' ' || u.last_name as admin_name
-     from cr_items f, cr_folders folder, cc_users u
+       p.first_names || ' ' || p.last_name as admin_name
+     from cr_items f, cr_folders folder, persons p
      where item_id = :homework_file_id
        and folder.folder_id = :folder_id
-       and u.user_id = :user_id
+       and p.person_id = :user_id
 
    </querytext>
 </fullquery>
