@@ -1,6 +1,17 @@
 <?xml version="1.0"?>
 <queryset>
 
+<fullquery name="correction_file_id">
+      <querytext>
+
+         select item_id
+         from cr_item_rels
+         where item_id = :file_id
+           and relation_tag = 'homework_correction'
+
+      </querytext>
+</fullquery>
+
 <fullquery name="parent_id">      
       <querytext>
 

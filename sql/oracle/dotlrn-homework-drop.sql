@@ -1,5 +1,6 @@
 @dotlrn-homework-applet-drop
 @dotlrn-homework-portlet-drop
+@dotlrn-homework-notifications-drop
 
 begin
   content_type.unregister_relation_type (

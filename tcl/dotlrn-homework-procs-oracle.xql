@@ -2,19 +2,6 @@
 
 <queryset>
 <rdbms><type>oracle</type><version>8.1.6</version></rdbms>
-
-<fullquery name="dotlrn_homework::new.check_duplicate">      
-   <querytext>
-     
-     select 1
-     from dual
-     where exists (select name
-                   from cr_items
-                   where parent_id = :parent_folder_id
-                     and name = :title)
-   </querytext>
-</fullquery>
-
  
 <fullquery name="dotlrn_homework::new.new_lob_file">      
    <querytext>

@@ -30,6 +30,13 @@ begin
 	       'AddApplet'
 	);
 
+	-- RemoveApplet
+	foo := acs_sc_impl.delete_alias (
+	       'dotlrn_applet',
+	       'dotlrn_homework_applet',
+	       'RemoveApplet'
+	);
+
 	-- AddAppletToCommunity
 	foo := acs_sc_impl.delete_alias (
 	       'dotlrn_applet',
@@ -37,11 +44,11 @@ begin
 	       'AddAppletToCommunity'
 	);
 
-	-- RemoveApplet
+	-- RemoveAppletFromCommunity
 	foo := acs_sc_impl.delete_alias (
 	       'dotlrn_applet',
 	       'dotlrn_homework_applet',
-	       'RemoveApplet'
+	       'RemoveAppletFromCommunity'
 	);
 
 	-- AddUser
@@ -51,6 +58,13 @@ begin
 	       'AddUser'
 	);
 
+	-- RemoveUser
+	foo := acs_sc_impl.delete_alias (
+	       'dotlrn_applet',
+	       'dotlrn_homework_applet',
+	       'RemoveUser'
+	);
+
 	-- AddUserToCommunity
 	foo := acs_sc_impl.delete_alias (
 	       'dotlrn_applet',
@@ -58,11 +72,25 @@ begin
 	       'AddUserToCommunity'
 	);
 
-	-- RemoveUser
+	-- RemoveUserFromCommunity
 	foo := acs_sc_impl.delete_alias (
 	       'dotlrn_applet',
 	       'dotlrn_homework_applet',
-	       'RemoveUser'
+	       'RemoveUserFromCommunity'
+	);
+
+	-- AddPortlet
+	foo := acs_sc_impl.delete_alias (
+	       'dotlrn_applet',
+	       'dotlrn_homework_applet',
+	       'AddPortlet'
+	);
+
+	-- RemovePortlet
+	foo := acs_sc_impl.delete_alias (
+	       'dotlrn_applet',
+	       'dotlrn_homework_applet',
+	       'RemovePortlet'
 	);
 
         foo := acs_sc_impl.delete_alias (

@@ -1,6 +1,18 @@
 <?xml version="1.0"?>
 <queryset>
 
+<fullquery name="dotlrn_homework::new.check_duplicate">      
+   <querytext>
+     
+     select 1
+     from dual
+     where exists (select name
+                   from cr_items
+                   where parent_id = :parent_folder_id
+                     and name = :title)
+   </querytext>
+</fullquery>
+
 <fullquery name="dotlrn_homework::new.get_owner_id">      
    <querytext>
      select creation_user as homework_user_id from acs_objects where object_id = :homework_file_id

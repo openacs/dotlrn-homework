@@ -1,6 +1,3 @@
-declare
-	foo integer;
-begin
 -- Notifications Service Contract implementation for dotlrn-homework
 
 -- Don Baccus (dhogaza@pacifier.com)

@@ -63,6 +63,14 @@ namespace eval dotlrn_homework_applet {
         ad_return_complaint 1 "[applet_key] remove_applet not implemented!"
     }
 
+    ad_proc -public remove_applet_from_community {
+	community_id
+    } {
+	remove the applet from the community
+    } {
+        ad_return_complaint 1 "[applet_key] remove_applet_from_community not implimented!"
+    }
+
     ad_proc -private create_homework_folder {
         -community_id:required
         -package_id:required
@@ -124,7 +132,7 @@ namespace eval dotlrn_homework_applet {
     ad_proc -public add_applet_to_community {
         community_id
     } {
-        Add the homework applet to a specifc dotlrn community
+        Add the homework applet to a specific dotlrn community
     } {
         set portal_id [dotlrn_community::get_portal_id -community_id $community_id]
         set package_id [dotlrn::instantiate_and_mount $community_id [package_key]]
@@ -147,9 +155,25 @@ namespace eval dotlrn_homework_applet {
     ad_proc -public remove_applet_from_community {
         community_id
     } {
-        remove the fs applet from a specifc dotlrn community
+        remove the homework applet from a specifc dotlrn community
     } {
         ad_return_complaint 1 "[applet_key] remove_applet_from_community not implemented!"
+    }
+
+    ad_proc -public add_portlet {
+        portal_id
+    } {
+        Add the homework portlet to the given portal.
+    } {
+        # no-op (I think - check when part of predefined applets list)
+    }
+
+    ad_proc -public remove_portlet {
+        portal_id
+    } {
+        Remove the homework portlet to the given portal.
+    } {
+        # no-op
     }
 
     ad_proc -public add_user {

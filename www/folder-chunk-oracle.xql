@@ -16,7 +16,8 @@
               lpad(' ',(the_level - 1), ' ') as spaces,
               rels.related_object_id as homework_file_id,
               c.first_names || ' ' || c.last_name as file_owner_name,
-              o.creation_user
+              o.creation_user,
+              decode(f.folder_id, null, 1, 0) as file_p
             from cr_item_rels rels, acs_objects o, cr_revisions r, cr_folders f, cc_users c,
               (select cr_items.*, level as the_level
                from cr_items
@@ -27,7 +28,7 @@
               and c.user_id(+) = o.creation_user
               and f.folder_id(+) = fs_tree.item_id
               $qualify_by_owner
-              and r.item_id(+) = fs_tree.item_id
+              and r.revision_id(+) = fs_tree.live_revision
               and r.content_length(+) = fs_tree.item_id
               and rels.item_id(+) = o.object_id
               and rels.relation_tag(+) = 'homework_correction'
@@ -35,7 +36,7 @@
                               from cr_item_rels
                               where related_object_id = o.object_id
                                 and relation_tag = 'homework_correction')
-            order by item_path
+            order by file_p, item_path
         </querytext>
     </fullquery>
 
