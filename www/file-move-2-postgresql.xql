@@ -8,7 +8,9 @@
       
 	select file_storage__move_file (
     			:file_id,
-    			:parent_id
+    			:parent_id,
+                        :creation_user,
+                        :creation_ip
     			);
 
       </querytext>
@@ -19,7 +21,9 @@
       
     	select file_storage__move_file (
     			:correction_file_id,
-    			:parent_id
+    			:parent_id,
+                        :creation_user,
+                        :creation_ip
     			);
 
       </querytext>

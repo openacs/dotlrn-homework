@@ -102,10 +102,25 @@ namespace eval dotlrn_homework {
                 set homework_user_id $user_id
             }
 
-            set title [encode_name -user_id $homework_user_id $title]
+            set encoded_filename [encode_name -user_id $homework_user_id $filename]
 
             if { [db_0or1row check_duplicate {}]} {
-                return -code error "[_ dotlrn-homework.lt_file_named]"
+
+		# AG: Make a reasonable attempt at avoiding collisions by
+		# converting a duplicate filename foo.txt to foo-2.txt,
+		# foo-3.txt and so on.
+		set success_p 0
+		set saved_filename $encoded_filename
+		for {set i 2} {$i < 11} {incr i} {
+		    set encoded_filename "[file rootname $saved_filename]-${i}[file extension $saved_filename]"
+		    if { ![db_0or1row check_duplicate {}]} {
+			set success_p 1
+			break
+		    }
+		}
+		if { !$success_p } {
+		    return -code error "[_ dotlrn-homework.lt_file_named]"
+		}
             }
 
             db_exec_plsql new_lob_file {}
@@ -123,8 +138,8 @@ namespace eval dotlrn_homework {
                 -community_id [dotlrn_community::get_community_id] \
                 -rel_type dotlrn_admin_rel]
 
-            # admins of this community can read the file
-            permission::grant -party_id $admins -object_id $file_id -privilege read
+            # admins of this community can admin the file
+            permission::grant -party_id $admins -object_id $file_id -privilege admin
             
             if { $homework_file_id == 0 } {
 
@@ -141,18 +156,25 @@ namespace eval dotlrn_homework {
                 permission::grant -party_id $homework_user_id -object_id $file_id -privilege read
 
                 # All admins can upload a correction file
-                permission::grant -party_id $admins -object_id $file_id -privilege write
+                permission::grant -party_id $admins -object_id $file_id -privilege admin
 
             }
 
-        }
+        } else {
+
+	    # When updating we simply query for the title of the live
+	    # revision.  The title is used by the new_version query
+	    # below.
+	    set title [db_string live_version_title {}]
+
+	}
 
         # Grab key for new revision
         set revision_id [db_exec_plsql new_version {}]
 
-        # A community admin can delete their own comment file revision
+        # A community admin can admin their own comment file revision
         if { $homework_file_id > 0 } {
-            permission::grant -party_id $user_id -object_id $revision_id -privilege delete
+            permission::grant -party_id $user_id -object_id $revision_id -privilege admin
         }
 
         if { [string is true $indb_p] } {

@@ -1,5 +1,5 @@
 <master src="master">
-<property name="title">@name@</property>
+<property name="title">@name@/@title@</property>
 <property name="context_bar">@context_bar@</property>
 
   <p>
@@ -44,7 +44,7 @@
 <multiple name=version>
   <tr>
     <td> <a href="@version.download_url@"><img src="@file_storage_url@/graphics/file.gif" border=0></a>
-      <a href="@version.download_url@">@version.title@</a>
+      <a href="@version.download_url@">@version.version_name@</a>
     </td>
     <td>@version.author@</td>
     <td align=right>@version.content_size@</td>

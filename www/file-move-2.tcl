@@ -26,6 +26,9 @@ ad_page_contract {
 ad_require_permission $file_id write
 ad_require_permission $parent_id write
 
+set creation_user [ad_conn user_id]
+set creation_ip [ns_conn peeraddr]
+
 db_transaction {
 
     set correction_file_id [db_string correction_file_id {} -default ""]

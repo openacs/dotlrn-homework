@@ -6,8 +6,8 @@ ad_page_contract {
 
 } {
     folder_id:integer,notnull
-    {min_level:integer 2}
-    {max_level:integer 2}
+    {min_level:integer ""}
+    {max_level:integer ""}
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if ![fs_folder_p $folder_id] {

@@ -7,6 +7,7 @@
       <querytext>
 	select person.name(o.creation_user) as owner,
        		i.name,
+                r.title,
        		acs_permission.permission_p(:file_id, :user_id, 'write') as write_file_p,
                 acs_permission.permission_p(:file_id, :user_id, 'delete') as delete_p,
                 decode(cir.item_id, null, 'f', 't') as correction_file_p
@@ -15,13 +16,15 @@
 	and    i.item_id   = o.object_id
 	and    r.revision_id = i.live_revision
         and    cir.related_object_id(+) = i.item_id
+
       </querytext>
 </fullquery>
 
 <fullquery name="version_info">      
       <querytext>
 
-	select  r.title,
+	select  i.name as version_name,
+                r.title,
        		r.revision_id as version_id,
        		person.name(o.creation_user) as author,
        		r.mime_type as type,

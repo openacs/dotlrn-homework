@@ -60,6 +60,16 @@ if { $admin_p } {
     set qualify_by_owner [db_map qualify_by_owner]
 }
 
+#AG: In Oracle this query is a seemingly nonsensical "select 2 from dual".
+#The problem is, the db logic in PG is completely different and requires a query.
+#To avoid propagating these differences up to Tcl we use a query in Oracle too.
+if {![exists_and_not_null min_level]} {
+    set min_level [db_string select_default_min_level {}]
+}
+if {![exists_and_not_null max_level]} {
+    set max_level $min_level
+}
+
 # If all the files belong to a single user we won't show the name of the user
 # who has created the file.  
 set show_users_p 0
@@ -76,23 +86,22 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
             set show_users_p 1
         }
 
-        # Strip off the user_id 
-        set pretty_name [dotlrn_homework::decode_name $name]
-
+        # Strip off the user_id
+        set name [dotlrn_homework::decode_name $name]
 
         # If the user can read the file the user can read the file's details
         set view_details_url "${url}file?[export_vars {folder_id {file_id $object_id}}]"
 
         # And download the latest revision
         set file_storage_url [dotlrn_homework::get_file_storage_url]
-        set download_url "${file_storage_url}/download/$title?[export_vars {version_id}]"
+        set download_url "${file_storage_url}/download/[ns_urlencode $name]?[export_vars {version_id}]"
 
         # Admin and students can read correction files but only an admin can add one ...
         if { ![string equal $homework_file_id ""] } {
             set view_correction_details_url "${url}file?[export_vars {folder_id {file_id $homework_file_id} {show_all_versions_p "t"}}]"
         } elseif { $admin_p } {
             set upload_correction_url \
-                "${url}file-add?[export_vars {folder_id return_url {name "$pretty_name - [_ dotlrn-homework.Comments]"} {homework_file_id $object_id}}]"
+                "${url}file-add?[export_vars {folder_id return_url {name "$title - [_ dotlrn-homework.Comments]"} {homework_file_id $object_id}}]"
         }
     }
 }
