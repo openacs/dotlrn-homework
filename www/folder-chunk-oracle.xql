@@ -17,7 +17,7 @@
               rels.related_object_id as homework_file_id,
               c.first_names || ' ' || c.last_name as file_owner_name,
               o.creation_user
-            from cr_item_rels rels, acs_objects o, cr_revisions r, cr_folders f, cc_users c,
+            from cr_item_rels rels, acs_objects o, cr_revisions r, cr_folders f, all_users c,
               (select cr_items.*, level as the_level
                from cr_items
                where level >= :min_level and level <= :max_level
