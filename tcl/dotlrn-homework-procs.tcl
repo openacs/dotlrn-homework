@@ -123,8 +123,8 @@ namespace eval dotlrn_homework {
                 -community_id [dotlrn_community::get_community_id] \
                 -rel_type dotlrn_admin_rel]
 
-            # admins of this community can read the file
-            permission::grant -party_id $admins -object_id $file_id -privilege read
+            # admins of this community can admin the file
+            permission::grant -party_id $admins -object_id $file_id -privilege admin
             
             if { $homework_file_id == 0 } {
 
@@ -141,7 +141,7 @@ namespace eval dotlrn_homework {
                 permission::grant -party_id $homework_user_id -object_id $file_id -privilege read
 
                 # All admins can upload a correction file
-                permission::grant -party_id $admins -object_id $file_id -privilege write
+                permission::grant -party_id $admins -object_id $file_id -privilege admin
 
             }
 
@@ -150,9 +150,9 @@ namespace eval dotlrn_homework {
         # Grab key for new revision
         set revision_id [db_exec_plsql new_version {}]
 
-        # A community admin can delete their own comment file revision
+        # A community admin can admin their own comment file revision
         if { $homework_file_id > 0 } {
-            permission::grant -party_id $user_id -object_id $revision_id -privilege delete
+            permission::grant -party_id $user_id -object_id $revision_id -privilege admin
         }
 
         if { [string is true $indb_p] } {
