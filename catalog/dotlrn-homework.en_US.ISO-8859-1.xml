@@ -96,4 +96,5 @@ so you cannot delete the file.</msg>
   <msg key="Version_Notes">Version Notes</msg>
   <msg key="View">New Comments</msg>
   <msg key="View_1">View</msg>
+  <msg key="edit_upload_size_limit">Edit Upload Size Limit</msg>
 </message_catalog>
