@@ -64,7 +64,7 @@
    <querytext>
       
      update cr_revisions
-     set content_length = length(content) 
+     set content_length = lob_length(lob) 
      where revision_id = :revision_id
             
    </querytext>
