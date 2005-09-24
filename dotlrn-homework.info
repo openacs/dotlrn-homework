@@ -7,13 +7,13 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
 
-    <version name="2.1.1" url="http://openacs.org/repository/download/apm/dotlrn-homework-2.1.1.apm">
+    <version name="2.1.3" url="http://openacs.org/repository/download/apm/dotlrn-homework-2.1.3.apm">
         <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
         <summary>Provides a homework assignment dropboxes for dotLRN classes.</summary>
-        <release-date>2004-03-10</release-date>
+        <release-date>2005-09-03</release-date>
         <vendor url="http://www.furfly.net">furfly.net, LLC</vendor>
 
-        <provides url="dotlrn-homework" version="2.1.1"/>
+        <provides url="dotlrn-homework" version="2.1.3"/>
         <requires url="dotlrn" version="1.0"/>
         <requires url="dotlrn-fs" version="0.1a"/>
         <requires url="new-portal" version="0.1a"/>
