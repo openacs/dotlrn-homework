@@ -25,7 +25,8 @@
                :user_id,
                :creation_ip,
                :indb_p,
-               :file_id
+               :file_id,
+	       :package_id
        );
             
    </querytext>
