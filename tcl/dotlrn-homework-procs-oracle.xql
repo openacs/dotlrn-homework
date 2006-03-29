@@ -26,6 +26,7 @@
                folder_id => :parent_folder_id,
                creation_user => :user_id,
                creation_ip => :creation_ip,
+	       package_id => :package_id,
                indb_p => :indb_p
              );
      end;
