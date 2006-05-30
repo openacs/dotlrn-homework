@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="dotlrn-homework" package_version="2.1.0b1" locale="nl_NL" charset="ISO-8859-1">
+<message_catalog package_key="dotlrn-homework" package_version="2.2.0a1" locale="nl_NL" charset="ISO-8859-1">
 
   <msg key="Action">Actie</msg>
   <msg key="Alert">Waarschuwing</msg>
@@ -15,6 +15,7 @@
   <msg key="Delete_version_name">%version_name% verwijderen</msg>
   <msg key="Description">Beschrijving</msg>
   <msg key="Do_not_alert">Niet waarschuwen</msg>
+  <msg key="edit_upload_size_limit">limiet voor bestandsaanbod bewerken </msg>
   <msg key="Folder_is_empty">Map is leeg</msg>
   <msg key="homework_pretty_admin">Huiswerk administratie</msg>
   <msg key="Live_version_of_name">Actuele versie van &quot;%name%&quot;</msg>
@@ -53,9 +54,9 @@
   <msg key="lt_spec_version">De gekozen versie is niet geldig.</msg>
   <msg key="lt_specified_file">De gekozen map is niet geldig.</msg>
   <msg key="lt_submit_comm">Commentaar verzenden</msg>
-  <msg key="lt_submit_new_assign">Nieuw huiswerk opgeven</msg>
-  <msg key="lt_Submit_New_Assignment">Nieuwe huiswerktaak verzenden</msg>
-  <msg key="lt_submit_new_file">Nieuwe huiswerktaak aanbieden</msg>
+  <msg key="lt_submit_new_assign">Nieuw huiswerk indienen</msg>
+  <msg key="lt_Submit_New_Assignment">Nieuwe huiswerktaak indienen</msg>
+  <msg key="lt_submit_new_file">Nieuwe huiswerktaak indienen</msg>
   <msg key="lt_TAs_and_professors_ca">Docenten en Docentassistenten kunnen verschillende bestanden met commentaar op de Details pagina aanbieden en kunnen het invoerveld voor Versie-typering gebruiken om het onderscheid tussen de verschillende bestanden te maken</msg>
   <msg key="lt_There_are_two_ways_to">Er zijn twee mogelijkheden om het werk van leerlingen te corrigeren: 1) een apart/nieuw bestand aanbieden via deze pagina of 2) opmerkingen maken in het bestand van de leerling. Hiervoor moet het bestand eerst worden geopend en bewaard worden op de eigen computer. Zodra de commentaar klaar is kan het bestand worden opgeslagen en via de huiswerkmap worden aangeboden.  </msg>
   <msg key="lt_This_file_has_version">Dit bestand heeft versies waarvoor het recht om deze te verwijderen momenteel ontbreekt. Het bestand kan niet worden verwijderd.</msg>
