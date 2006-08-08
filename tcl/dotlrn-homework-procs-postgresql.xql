@@ -25,7 +25,8 @@
                :user_id,
                :creation_ip,
                :indb_p,
-               :file_id
+               :file_id,
+	       :package_id
        );
             
    </querytext>
@@ -64,7 +65,7 @@
    <querytext>
       
      update cr_revisions
-     set content_length = length(content) 
+     set content_length = lob_length(lob) 
      where revision_id = :revision_id
             
    </querytext>

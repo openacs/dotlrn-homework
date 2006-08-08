@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="dotlrn-homework" package_version="2.2.0b2" locale="es_GT" charset="ISO-8859-1">
+<message_catalog package_key="dotlrn-homework" package_version="2.2.0b2" locale="es_CO" charset="ISO-8859-1">
 
   <msg key="Action">Acción</msg>
   <msg key="Alert">Alerta</msg>
@@ -15,6 +15,7 @@
   <msg key="Delete_version_name">Borrar %version_name%</msg>
   <msg key="Description">Descripción</msg>
   <msg key="Do_not_alert">No alertar</msg>
+  <msg key="edit_upload_size_limit">Editar el tamaño límite para subir archivos</msg>
   <msg key="Folder_is_empty">El directorio esta vacío</msg>
   <msg key="homework_pretty_admin">Administración de Tareas</msg>
   <msg key="Live_version_of_name">La versión actual de &quot;%name%&quot;</msg>

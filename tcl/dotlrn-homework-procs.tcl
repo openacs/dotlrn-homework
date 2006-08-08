@@ -61,6 +61,7 @@ namespace eval dotlrn_homework {
         -description:required
         -upload_file:required
         -homework_file_id
+	{-package_id ""}
     } {
 
         Build a new content revision in the given folder.  If new_file_p is set true then
@@ -77,6 +78,7 @@ namespace eval dotlrn_homework {
         @param description The description of the new revision
         @param upload_file The file structure passed us by the browser
         @param homework_file_id If nonzero, this is a correction file to relate to homework_file_id
+        @param package_id Package ID of the homework package used
 
     } {
 

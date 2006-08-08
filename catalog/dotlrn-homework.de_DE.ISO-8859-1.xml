@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="dotlrn-homework" package_version="2.1.0b1" locale="de_DE" charset="ISO-8859-1">
+<message_catalog package_key="dotlrn-homework" package_version="2.2.0b2" locale="de_DE" charset="ISO-8859-1">
 
   <msg key="Action">Aktion</msg>
   <msg key="Alert">Warnung</msg>
@@ -15,6 +15,7 @@
   <msg key="Delete_version_name">%version_name% löschen</msg>
   <msg key="Description">Beschreibung</msg>
   <msg key="Do_not_alert">Nicht warnen</msg>
+  <msg key="edit_upload_size_limit">Größenbeschränkung bearbeiten</msg>
   <msg key="Folder_is_empty">Verzeichnis ist leer.</msg>
   <msg key="homework_pretty_admin">Homework Administration</msg>
   <msg key="Live_version_of_name">Aktuelle version von &quot;%name%&quot;</msg>
@@ -36,11 +37,11 @@
   <msg key="lt_folder_already_contains">Das &lt;a href=\&quot;index?folder_id=%parent_id%\&quot;&gt;Verzeichnis&lt;/a&gt; enthält bereits eine Datei mit diesem Namen.</msg>
   <msg key="lt_folder_name">Verzeichnisname</msg>
   <msg key="lt_For_more_information_">Für weitere Fragen sollten sie die Admin-FAQ unter Eigene Einstellungen bzw. das Handbuch konsultieren.</msg>
-  <msg key="lt_homework_folder">%community_name%s Hausaufgaben-Verzeichnis</msg>
+  <msg key="lt_homework_folder">Hausaufgaben-Verzeichnis von &quot;%community_name%&quot;</msg>
   <msg key="lt_homework_upload">Benachrichtigung über Hausarbeiten-Upload</msg>
   <msg key="lt_internal_error">Interner Fehler</msg>
   <msg key="lt_interval_or_del">Interval oder Zustellart für die Benachrichtigungen über Hausarbeiten ist nicht in Ordnung</msg>
-  <msg key="lt_me_when_homework_file">mich, sobald die Dateien sich verändert haben.</msg>
+  <msg key="lt_me_when_homework_file">, sobald die Dateien sich verändert haben.</msg>
   <msg key="lt_new_values">%new_value%'s Hausarbeiten-Ordner</msg>
   <msg key="lt_one_assignment">Eine Aufgabe</msg>
   <msg key="lt_one_folder">Ein Verzeichnis</msg>

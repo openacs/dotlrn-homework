@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="dotlrn-homework" package_version="2.1.0b1" locale="no_NO" charset="ISO-8859-1">
+<message_catalog package_key="dotlrn-homework" package_version="2.2.0b2" locale="no_NO" charset="ISO-8859-1">
 
   <msg key="Action">Aktivitet</msg>
   <msg key="Alert">Varsel</msg>
@@ -15,6 +15,7 @@
   <msg key="Delete_version_name">Slett %version_name%</msg>
   <msg key="Description">Beskrivelse</msg>
   <msg key="Do_not_alert">Ikke send varsel</msg>
+  <msg key="edit_upload_size_limit">Edit Upload Size Limit</msg>
   <msg key="Folder_is_empty">Mappe er tom</msg>
   <msg key="homework_pretty_admin">Administrasjon av innlevering</msg>
   <msg key="Live_version_of_name">Aktiv versjon av &quot;%name%&quot;</msg>
@@ -53,7 +54,7 @@
   <msg key="lt_spec_version">Versjonen du spesifiserte er ikke gyldig.</msg>
   <msg key="lt_specified_file">Filen du spesifiserte er ikke gyldig.</msg>
   <msg key="lt_submit_comm">Send inn kommentarer</msg>
-  <msg key="lt_submit_new_assign">Send inn en ny oppgave</msg>
+  <msg key="lt_submit_new_assign">Lever inn en ny oppgave</msg>
   <msg key="lt_Submit_New_Assignment">Send inn en ny oppgavefil</msg>
   <msg key="lt_submit_new_file">Send inn en ny oppgavefil</msg>
   <msg key="lt_TAs_and_professors_ca">Assistenter og undervisere kan laste opp forskjellege versjoner fra siden for Detaljer, og de kan bruke tekstboksen for versjonsnotater for å skille mellom kommentarfilene.</msg>

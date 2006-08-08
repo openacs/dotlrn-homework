@@ -110,7 +110,7 @@ namespace eval dotlrn_homework_admin_portlet {
 
     ad_proc -public get_pretty_name {
     } {
-        return "[_ dotlrn-homework.homework_pretty_admin]"
+        return "#dotlrn-homework.homework_pretty_admin#"
     }
 
     ad_proc -public link {
