@@ -23,9 +23,9 @@
          # it.
       %>
 
-      <p>#dotlrn-homework.lt_There_are_two_ways_to#
-      <p>#dotlrn-homework.lt_TAs_and_professors_ca#
-      <p>#dotlrn-homework.lt_For_more_information_#
+      <p>#dotlrn-homework.lt_There_are_two_ways_to#</p>
+      <p>#dotlrn-homework.lt_TAs_and_professors_ca#</p>
+      <p>#dotlrn-homework.lt_For_more_information_#</p>
       <p>
     </if>
     <table border="0" class="table-display" cellpadding="5" cellspacing="0" width="85%">
