@@ -50,7 +50,7 @@
           <tr class="z_light">
         </else>
       <if @folders.content_type@ eq "content_folder">
-          <td align="left">@folders.spaces;noquote@<img border="0" src="@file_storage_url@/graphics/folder.gif"></td>
+          <td align="left">@folders.spaces;noquote@<img border="0" src="@file_storage_url@/graphics/folder.gif" alt="#file-storage.Folder#"></td>
           <td colspan="3"><a href="@folders.contents_url@">@folders.name@</a></td>
       </if>
       <else>
