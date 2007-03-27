@@ -1,5 +1,4 @@
   <if @toolbar:rowcount@ gt 0>
-     <nobr>
        <small>[
          <multiple name="toolbar">
            <if @toolbar.rownum@ ne 1>
@@ -8,7 +7,6 @@
            <a href="@toolbar.target@">@toolbar.label@</a>
          </multiple>
        ]</small>
-     </nobr>
      <br><br>
   </if>
 
