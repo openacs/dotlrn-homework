@@ -14,9 +14,9 @@
         <vendor url="http://www.furfly.net">furfly.net, LLC</vendor>
 
         <provides url="dotlrn-homework" version="2.3.0a1"/>
-        <requires url="dotlrn" version="5.3.0a1"/>
-        <requires url="dotlrn-fs" version="5.3.0a1"/>
-        <requires url="new-portal" version="5.3.0a1"/>
+        <requires url="dotlrn" version="2.3.0a1"/>
+        <requires url="dotlrn-fs" version="2.3.0a1"/>
+        <requires url="new-portal" version="2.3.0a1"/>
 
         <callbacks>
             <callback type="after-install"  proc="dotlrn_homework::apm_callbacks::package_install"/>
