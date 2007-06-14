@@ -31,7 +31,7 @@ ad_form -name homework_form -html { enctype multipart/form-data } -export { retu
     file_id:key
     {upload_file:file                    {label "[_ dotlrn-homework.lt_version_filename]"}}
     {description:text(textarea),optional {label "[_ dotlrn-homework.lt_version_notes]"}
-                                         {html {rows 5 cols 50 wrap physical}}}
+                                         {html {rows 5 cols 50}}}
 } -edit_request {
 } -validate {
     {upload_file
