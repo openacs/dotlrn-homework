@@ -52,7 +52,7 @@ if { $homework_file_id == 0 } {
 ad_form -extend -name homework_form -form {
 
     {description:text(textarea),optional {label "[_ dotlrn-homework.Description]"}
-                                         {html {rows 5 cols 50 wrap physical}}}
+                                         {html {rows 5 cols 50}}}
 } -validate {
     {upload_file
       { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [ad_parameter "MaximumFileSize"] }
