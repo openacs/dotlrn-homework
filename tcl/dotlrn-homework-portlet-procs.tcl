@@ -41,6 +41,45 @@ namespace eval dotlrn_homework_portlet {
         return ""
     }
 
+    ad_proc -public add_portlet {
+        {-portal_id:required}
+    } {
+
+        Adds a porlet.
+        @param portal_id The page to add portlet.
+    } {
+        set args [ns_set create]
+        ns_set put $args package_id 0
+        ns_set put $args page_name ""
+        ns_set put $args folder_id 0
+        ns_set put $args param_action "overwrite"
+
+        add_portlet_helper $portal_id $args        
+    }
+
+    
+    ad_proc -public remove_portlet {
+        {-portal_id:required}
+    } {
+        Remove portlet
+        @param portal_id The page from remove portlet.
+    } {
+        ad_return_complaint 1  "[applet_key] remove_portlet not implimented!"
+    }
+    
+    ad_proc -public add_portlet_helper {
+        portal_id
+        args
+    } {
+        This does the call to add portlet to the given portal. Params for the portlet are set by the callers.
+    } {
+        add_self_to_page -portal_id $portal_id \
+            -page_name [ns_set get $args page_name] \
+            -package_id [ns_set get $args package_id] \
+            -folder_id [ns_set get $args folder_id] \
+            -param_action [ns_set get $args param_action]
+    }
+
     ad_proc -public add_self_to_page {
         {-portal_id:required}
         {-page_name ""}

@@ -63,6 +63,26 @@ namespace eval dotlrn_homework_applet {
         ad_return_complaint 1 "[applet_key] remove_applet not implemented!"
     }
 
+    ad_proc -public add_portlet {
+        portal_id
+    } {
+
+        Adds a porlet.
+        @param portal_id The page to add portlet.
+    } {
+        dotlrn_homework_portlet::add_portlet -portal_id $portal_id
+    }
+
+    ad_proc -public remove_portlet {
+        {-portal_id:required}
+    } {
+        Remove portlet
+        @param portal_id The page from remove portlet.
+    } {
+        ad_return_complaint 1  "[applet_key] remove_portlet not implimented!"
+    }
+
+
     ad_proc -private create_homework_folder {
         -community_id:required
         -package_id:required
