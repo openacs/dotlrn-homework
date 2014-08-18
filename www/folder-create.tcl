@@ -33,7 +33,7 @@ set creation_ip [ad_conn peeraddr]
 # to upload homework files but only class admins can create new homework
 # subfolders.
 
-ad_require_permission $parent_id admin
+permission::require_permission -object_id $parent_id -privilege admin
 
 ad_form -name homework_form -form {
     {return_url:text(hidden)         {value $return_url}}

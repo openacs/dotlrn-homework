@@ -21,7 +21,7 @@ ad_page_contract {
 }
 
 # check for write permission on the folder
-ad_require_permission $folder_id write
+permission::require_permission -object_id $folder_id -privilege write
 
 # Homework_file_id tells us whether or not we're uploading a correction file to relate
 # to an existing homework file, or a new home work file
@@ -55,8 +55,8 @@ ad_form -extend -name homework_form -form {
                                          {html {rows 5 cols 50}}}
 } -validate {
     {upload_file
-      { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [ad_parameter "MaximumFileSize"] }
-      "[_ dotlrn-homework.lt_your_file_is] ([util_commify_number [ad_parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
+      { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [parameter::get -parameter "MaximumFileSize"] }
+      "[_ dotlrn-homework.lt_your_file_is] ([util_commify_number [parameter::get -parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
     }
 } -new_data {
 

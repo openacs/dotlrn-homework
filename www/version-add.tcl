@@ -22,7 +22,7 @@ ad_page_contract {
 }
 
 # check for write permission on the file
-ad_require_permission $file_id write
+permission::require_permission -object_id $file_id -privilege write
 
 set page_title "[_ dotlrn-homework.lt_upload_new_version_of]"
 set context_bar [list [_ dotlrn-homework.lt_upload_new_ass_version]]
@@ -35,8 +35,8 @@ ad_form -name homework_form -html { enctype multipart/form-data } -export { retu
 } -edit_request {
 } -validate {
     {upload_file
-      { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [ad_parameter "MaximumFileSize"] }
-      "[_ dotlrn-homework.lt_your_file_is] ([util_commify_number [ad_parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
+      { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [parameter::get -parameter "MaximumFileSize"] }
+      "[_ dotlrn-homework.lt_your_file_is] ([util_commify_number [parameter::get -parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
     }
 } -edit_data {
 

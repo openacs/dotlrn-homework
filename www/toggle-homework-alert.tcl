@@ -37,8 +37,8 @@ if { $subscribe_p } {
     }
 
     # The get routines return a list of name/id pairs so extract the ids
-    set interval_id [lindex [lindex $intervals 0] 1]
-    set delivery_method_id [lindex [lindex $delivery_methods 0] 1]
+    set interval_id [lindex $intervals 0 1]
+    set delivery_method_id [lindex $delivery_methods 0 1]
 
     # Add the alert
     notification::request::new -type_id $type_id -user_id [ad_conn user_id] -object_id $folder_id \

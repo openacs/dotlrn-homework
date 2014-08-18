@@ -23,8 +23,8 @@ ad_page_contract {
 
 # check for write permission on both the file and the target folder
 
-ad_require_permission $file_id write
-ad_require_permission $parent_id write
+permission::require_permission -object_id $file_id -privilege write
+permission::require_permission -object_id $parent_id -privilege write
 
 set creation_user [ad_conn user_id]
 set creation_ip [ns_conn peeraddr]

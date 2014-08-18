@@ -29,7 +29,7 @@ ad_page_contract {
 
 # check for delete permission on the folder
 
-ad_require_permission $folder_id delete
+permission::require_permission -object_id $folder_id -privilege delete
 
 if {$confirmed_p == "t"} {
     # they have confirmed that they want to delete the folder

@@ -22,7 +22,7 @@ ad_page_contract {
 
 # check for delete permission on the file
 
-ad_require_permission $file_id delete
+permission::require_permission -object_id $file_id -privilege delete
 
 # check the file doesn't have any revisions that the user
 # doesn't have permission to delete

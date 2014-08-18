@@ -35,7 +35,7 @@ ad_page_contract {
 
 # check that they have read permission on this file.
 
-ad_require_permission $file_id read
+permission::require_permission -object_id $file_id -privilege read
 
 #set templating datasources
 
