@@ -8,7 +8,7 @@ ad_page_contract {
     file_id:integer,notnull
 } -validate {
     valid_file -requires {file_id} {
-	if ![fs_file_p $file_id] {
+	if {![fs_file_p $file_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }

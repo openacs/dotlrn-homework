@@ -10,7 +10,7 @@ ad_page_contract {
     {max_level:integer ""}
 } -validate {
     valid_folder -requires {folder_id:integer} {
-	if ![fs_folder_p $folder_id] {
+	if {![fs_folder_p $folder_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }

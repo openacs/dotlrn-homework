@@ -9,7 +9,7 @@ ad_page_contract {
     {confirmed_p "f"}
 } -validate {
     valid_version -requires {version_id} {
-	if ![fs_version_p $version_id] {
+	if {![fs_version_p $version_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_spec_version]"
 	}
     }
@@ -29,7 +29,7 @@ select item_id
 from   cr_revisions
 where  revision_id = :version_id"
 
-if {[string equal $confirmed_p "t"]} {
+if {$confirmed_p == "t"} {
     # they have confirmed that they want to delete the version
 
     db_transaction {

@@ -10,7 +10,7 @@ ad_page_contract {
     return_url:notnull
 } -validate {
     valid_folder -requires {parent_id:integer} {
-	if ![fs_folder_p $parent_id] {
+	if {![fs_folder_p $parent_id]} {
 	    ad_complain [_ dotlrn-homework.lt_spec_parent]
 	}
     }

@@ -9,13 +9,13 @@ ad_page_contract {
     parent_id:integer,notnull
 } -validate {
     valid_file -requires {file_id} {
-	if ![fs_file_p $file_id] {
+	if {![fs_file_p $file_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
 
     valid_folder -requires {parent_id} {
-	if ![fs_folder_p $parent_id] {
+	if {![fs_folder_p $parent_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
@@ -36,7 +36,7 @@ db_transaction {
     db_exec_plsql file_move {}
     db_dml context_update {}
 
-    if { ![string equal $correction_file_id ""] } {
+    if { $correction_file_id ne "" } {
         db_exec_plsql correction_file_move {}
         db_dml correction_context_update {}
     }

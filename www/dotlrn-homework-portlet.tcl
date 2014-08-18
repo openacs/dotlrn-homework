@@ -51,7 +51,7 @@ if { $admin_p } {
     # student's files
     set max_level $min_level
 } else {
-    set max_level [expr $min_level + 1]
+    set max_level [expr {$min_level + 1}]
 }
 
 ad_return_template 
