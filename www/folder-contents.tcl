@@ -5,7 +5,7 @@ ad_page_contract {
     @author Don Baccus (dhogaza@pacifier.com)
 
 } {
-    folder_id:integer,notnull
+    folder_id:naturalnum,notnull
     {min_level:integer ""}
     {max_level:integer ""}
 } -validate {

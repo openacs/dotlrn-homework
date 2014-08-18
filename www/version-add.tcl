@@ -5,8 +5,8 @@ ad_page_contract {
     Don Baccus (dhogaza@pacifier.com)
 
 } {
-    file_id:integer,notnull
-    folder_id:integer,notnull
+    file_id:naturalnum,notnull
+    folder_id:naturalnum,notnull
     name:notnull
     return_url:notnull
 } -validate {

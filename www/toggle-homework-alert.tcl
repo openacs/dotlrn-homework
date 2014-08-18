@@ -9,9 +9,9 @@ ad_page_contract {
     @creation-date 2002-07-25
     @cvs-id $Id$
 } {
-    folder_id:integer,notnull
-    request_id:integer
-    type_id:integer,notnull
+    folder_id:naturalnum,notnull
+    request_id:naturalnum,notnull
+    type_id:naturalnum,notnull
     subscribe_p:boolean,notnull
     return_url:notnull
 } -validate {
