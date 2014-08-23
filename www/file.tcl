@@ -10,8 +10,8 @@ ad_page_contract {
     @author Don Baccus (dhogaza@pacifier.com)
 
 } {
-    file_id:naturalnum,notnull
-    folder_id:naturalnum,notnull
+    file_id:integer,notnull
+    folder_id:integer,notnull
     {show_all_versions_p "f"}
 } -validate {
     valid_file -requires {file_id} {

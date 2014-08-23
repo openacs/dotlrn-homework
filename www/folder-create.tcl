@@ -6,7 +6,7 @@ ad_page_contract {
     @creation-date 7 Nov 2000
     @cvs-id $Id$
 } {
-    parent_id:naturalnum,notnull
+    parent_id:integer,notnull
     return_url:notnull
 } -validate {
     valid_folder -requires {parent_id:integer} {
