@@ -9,7 +9,7 @@ ad_page_contract {
     {confirmed_p "f"}
 } -validate {
     valid_file -requires {file_id} {
-	if ![fs_file_p $file_id] {
+	if {![fs_file_p $file_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
@@ -22,7 +22,7 @@ ad_page_contract {
 
 # check for delete permission on the file
 
-ad_require_permission $file_id delete
+permission::require_permission -object_id $file_id -privilege delete
 
 # check the file doesn't have any revisions that the user
 # doesn't have permission to delete
@@ -35,7 +35,7 @@ from   cr_revisions
 where  item_id = :file_id
 and    acs_permission.permission_p(revision_id,:user_id,'delete') = 'f'"] 0 f t]
 
-if {[string equal $confirmed_p "t"] && [string equal $blocked_p "f"] } {
+if {$confirmed_p == "t" && $blocked_p == "f" } {
     # they confirmed that they want to delete the file
 
     db_1row parent_id "select parent_id from cr_items where item_id = :file_id"

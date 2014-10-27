@@ -21,13 +21,13 @@ set n_folders [llength $list_of_folder_ids]
 
 if {$n_folders != 1} {
     # something went wrong, we can't have more than one folder here
-    ad_return -error
+    return -code error "can't have more than one folder"
 }
 set folder_id [lindex $list_of_folder_ids 0]
 
 # Make sure our visitor can read the folder.
 if { ![permission::permission_p -object_id $folder_id -privilege "read"] } {
-    ad_return -error
+    return -code error "visitor can't read folder"
 }
 
 # No need to do any more work if the shade's pulled up
@@ -51,7 +51,7 @@ if { $admin_p } {
     # student's files
     set max_level $min_level
 } else {
-    set max_level [expr $min_level + 1]
+    set max_level [expr {$min_level + 1}]
 }
 
 ad_return_template 

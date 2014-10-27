@@ -94,7 +94,7 @@ namespace eval dotlrn_homework {
         set mime_type [cr_filename_to_mime_type $filename]
 
         # Get the storage type
-        set indb_p [ad_decode [ad_parameter "StoreFilesInDatabaseP" -package_id [ad_conn package_id]] 1 "t" "f"]
+        set indb_p [ad_decode [parameter::get -package_id [ad_conn package_id] -parameter "StoreFilesInDatabaseP"] 1 "t" "f"]
 
         if { $new_file_p } {
 
@@ -305,8 +305,8 @@ namespace eval dotlrn_homework {
     }
 
     # The get routines return a list of name/id pairs so extract the ids
-    set interval_id [lindex [lindex $intervals 0] 1]
-    set delivery_method_id [lindex [lindex $delivery_methods 0] 1]
+    set interval_id [lindex $intervals 0 1]
+    set delivery_method_id [lindex $delivery_methods 0 1]
 
     # Add the alert
     notification::request::new -type_id $type_id -user_id [ad_conn user_id] -object_id $homework_file_id \

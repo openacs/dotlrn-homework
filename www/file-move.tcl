@@ -10,7 +10,7 @@ ad_page_contract {
     name:notnull
 } -validate {
     valid_file -requires {file_id} {
-	if ![fs_file_p $file_id] {
+	if {![fs_file_p $file_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
@@ -23,7 +23,7 @@ ad_page_contract {
 # check they have write permission on the file (is this really the
 # right permission?)
 
-ad_require_permission $file_id write
+permission::require_permission -object_id $file_id -privilege write
 set context_bar "[_ dotlrn-homework.Move]"
 set return_url "[ad_conn url]?[ad_conn query]"
 

@@ -8,7 +8,7 @@ ad_page_contract {
     file_id:integer,notnull
 } -validate {
     valid_file -requires {file_id} {
-	if ![fs_file_p $file_id] {
+	if {![fs_file_p $file_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
@@ -20,7 +20,7 @@ ad_page_contract {
 
 # check for read permission on the file
 
-ad_require_permission $file_id read
+permission::require_permission -object_id $file_id -privilege read
 
 # set templating datasources
 

@@ -10,7 +10,7 @@ ad_page_contract {
     {max_level:integer ""}
 } -validate {
     valid_folder -requires {folder_id:integer} {
-	if ![fs_folder_p $folder_id] {
+	if {![fs_folder_p $folder_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_spec_parent]"
 	}
     }
@@ -28,7 +28,7 @@ ad_page_contract {
 
 # Make sure our visitor can read and write to the folder.
 if { ![permission::permission_p -object_id $folder_id -privilege "read"] } {
-    ad_return -error
+    return -code error "visitor can't read folder"
 }
 
 set list_of_folder_ids [list $folder_id]

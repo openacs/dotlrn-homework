@@ -11,12 +11,13 @@
         <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
         <summary>Provides a homework assignment dropboxes for dotLRN classes.</summary>
         <release-date>2011-10-30</release-date>
-        <vendor url="http://www.furfly.net">furfly.net, LLC</vendor>
+        <vendor url="http://dotlrn.org">DotLRN Consortium</vendor>
+        <maturity>2</maturity>
 
         <provides url="dotlrn-homework" version="2.9.0d1"/>
-        <requires url="dotlrn" version="2.6.0"/>
-        <requires url="dotlrn-fs" version="2.6.0"/>
-        <requires url="new-portal" version="2.6.0"/>
+        <requires url="dotlrn" version="2.9.0d1"/>
+        <requires url="dotlrn-fs" version="2.9.0d1"/>
+        <requires url="new-portal" version="2.9.0d1"/>
 
         <callbacks>
             <callback type="after-install"  proc="dotlrn_homework::apm_callbacks::package_install"/>

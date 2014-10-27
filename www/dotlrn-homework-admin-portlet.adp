@@ -12,7 +12,7 @@
       </else>
       #dotlrn-homework.lt_me_when_homework_file#
     </li>
-    <li><a href="dotlrn-homework/admin/upload-size-limit?<%=[export_url_vars return_url]%>" title="#dotlrn-homework.edit_upload_size_limit#">#dotlrn-homework.edit_upload_size_limit#</a></li>
+    <li><a href="dotlrn-homework/admin/upload-size-limit?<%=[export_vars -url {return_url}]%>" title="#dotlrn-homework.edit_upload_size_limit#">#dotlrn-homework.edit_upload_size_limit#</a></li>
   </ul>
 </else>
 

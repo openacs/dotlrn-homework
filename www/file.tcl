@@ -15,7 +15,7 @@ ad_page_contract {
     {show_all_versions_p "f"}
 } -validate {
     valid_file -requires {file_id} {
-	if ![fs_file_p $file_id] {
+	if {![fs_file_p $file_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_specified_file]"
 	}
     }
@@ -35,7 +35,7 @@ ad_page_contract {
 
 # check that they have read permission on this file.
 
-ad_require_permission $file_id read
+permission::require_permission -object_id $file_id -privilege read
 
 #set templating datasources
 
@@ -53,7 +53,7 @@ set move_url "file-move?[export_vars {file_id name}]"
 # idea so I'm not putting out a link to it.   As of July Sloan agrees.
 set copy_url "file-copy?[export_vars {file_id name}]"
 
-if {[string equal $show_all_versions_p "t"]} {
+if {$show_all_versions_p == "t"} {
     set show_versions [db_map show_all_versions]
 } else {
     set show_versions [db_map show_live_version]

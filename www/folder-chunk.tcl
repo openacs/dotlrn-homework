@@ -63,10 +63,10 @@ if { $admin_p } {
 #AG: In Oracle this query is a seemingly nonsensical "select 2 from dual".
 #The problem is, the db logic in PG is completely different and requires a query.
 #To avoid propagating these differences up to Tcl we use a query in Oracle too.
-if {![exists_and_not_null min_level]} {
+if {(![info exists min_level] || $min_level eq "")} {
     set min_level [db_string select_default_min_level {}]
 }
-if {![exists_and_not_null max_level]} {
+if {(![info exists max_level] || $max_level eq "")} {
     set max_level $min_level
 }
 
@@ -78,7 +78,7 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
     folders select_folder_contents {} {
 	
 	regsub -all " " $spaces {\&nbsp;\&nbsp;} spaces
-	if { [string equal $content_type "content_folder"] } {
+	if {$content_type eq "content_folder"} {
 	    set contents_url "${url}folder-contents?[export_vars {{folder_id $object_id} return_url}]"
 	} else {
 
@@ -97,7 +97,7 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
         set download_url "${file_storage_url}/download/[ns_urlencode $name]?[export_vars {version_id}]"
 
         # Admin and students can read correction files but only an admin can add one ...
-        if { ![string equal $homework_file_id ""] } {
+        if { $homework_file_id ne "" } {
             set view_correction_details_url "${url}file?[export_vars {folder_id {file_id $homework_file_id} {show_all_versions_p "t"}}]"
         } elseif { $admin_p } {
             set upload_correction_url \

@@ -92,8 +92,8 @@ namespace eval dotlrn_homework_applet {
         existing community.  This proc creates the target community's homework folder
         and sets the proper permissions.
 
-        @community_id    The community we're creating the homefolder for
-        @package_id      Our package id
+        @param community_id    The community we're creating the homefolder for
+        @param package_id      Our package id
 
         @return          The new folder id
 
@@ -215,8 +215,8 @@ namespace eval dotlrn_homework_applet {
         We just create the homework folder and portlets in the new community,
         as requested by Sloan.
 
-        @old_community_id  The old (source) community
-        @new_community_id  The new (destination) community
+        @param old_community_id  The old (source) community
+        @param new_community_id  The new (destination) community
 
         @return The package id for the homework package mounted in the new community
     } {
@@ -271,10 +271,10 @@ namespace eval dotlrn_homework_applet {
     } {
         dotlrn-homework listens only for rename
 
-        @community_id  The community experiencing an event
-        @event         The event (rename)
-        @old_value     The old community name being changed
-        @new_value     The new community name
+        @param community_id  The community experiencing an event
+        @param event         The event (rename)
+        @param old_value     The old community name being changed
+        @param new_value     The new community name
     } {
         switch $event {
             rename {

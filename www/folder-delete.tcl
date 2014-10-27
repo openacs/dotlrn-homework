@@ -11,7 +11,7 @@ ad_page_contract {
     {confirmed_p "f"}
 } -validate {
     valid_folder -requires {folder_id:integer} {
-	if ![fs_folder_p $folder_id] {
+	if {![fs_folder_p $folder_id]} {
 	    ad_complain "[_ dotlrn-homework.lt_spec_folder]"
 	}
     }
@@ -29,9 +29,9 @@ ad_page_contract {
 
 # check for delete permission on the folder
 
-ad_require_permission $folder_id delete
+permission::require_permission -object_id $folder_id -privilege delete
 
-if { [string equal $confirmed_p "t"] } {
+if {$confirmed_p == "t"} {
     # they have confirmed that they want to delete the folder
     db_1row parent_id {}
     db_exec_plsql folder_delete {}
