@@ -8,7 +8,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     folder_id:integer,notnull
-    {confirmed_p "f"}
+    {confirmed_p:boolean "f"}
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if {![fs_folder_p $folder_id]} {
