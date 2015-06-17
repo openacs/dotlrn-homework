@@ -4,10 +4,10 @@
 
   <p>
   [<if @show_all_versions_p@ true>
-      <a href="file?file_id=@file_id@&folder_id=@folder_id@&show_all_versions_p=f">#dotlrn-homework.lt_Show_only_live_versio#</a>
+      <a href="file?file_id=@file_id@&amp;folder_id=@folder_id@&amp;show_all_versions_p=f">#dotlrn-homework.lt_Show_only_live_versio#</a>
    </if>
    <else>
-     <a href="file?file_id=@file_id@&folder_id=@folder_id@&show_all_versions_p=t">#dotlrn-homework.Show_all_versions#</a>
+     <a href="file?file_id=@file_id@&amp;folder_id=@folder_id@&amp;show_all_versions_p=t">#dotlrn-homework.Show_all_versions#</a>
    </else>
   <if @write_file_p@ true>
     | <a href="@version_add_url@">#dotlrn-homework.Upload_a_new_version#</a>
@@ -20,9 +20,9 @@
   </if>]
   <p>
 
-<table border=1 cellspacing=2 cellpadding=2>
+<table border="1" cellspacing="2" cellpadding="2">
   <tr>
-    <td colspan=7>
+    <td colspan="7">
       <if @show_all_versions_p@ true>#dotlrn-homework.All_Versions_of_name#</if>
       <else>#dotlrn-homework.Live_version_of_name#</else>
     </td>
@@ -43,11 +43,11 @@
 
 <multiple name=version>
   <tr>
-    <td> <a href="@version.download_url@"><img src="@file_storage_url@/graphics/file.gif" border=0></a>
+    <td> <a href="@version.download_url@"><img src="@file_storage_url@/graphics/file.gif" border="0"></a>
       <a href="@version.download_url@">@version.version_name@</a>
     </td>
     <td>@version.author@</td>
-    <td align=right>@version.content_size@</td>
+    <td align="right">@version.content_size@</td>
     <td>@version.type@</td>
     <td>@version.last_modified@</td>
     <td>@version.description@</td>
