@@ -61,10 +61,10 @@ if {$confirmed_p == "t"} {
 
     if {$parent_id > 0} {
 	# Redirect to the folder, instead of the latest revision (which does not exist anymore)
-	ad_returnredirect "folder-contents?[export_vars {{folder_id $parent_id}}]"
+	ad_returnredirect [export_vars -base folder-contents {{folder_id $parent_id}}]
     } else {
 	# Ok, we don't have to do anything fancy, just redirect to th last revision
-	ad_returnredirect "file?[export_vars {{file_id $item_id} {folder_id $parent_id}}]"
+	ad_returnredirect [export_vars -base file {{file_id $item_id} {folder_id $parent_id}}]
     }
 
 } else {

@@ -46,6 +46,6 @@ set request_id [notification::request::get_request_id -object_id $folder_id -use
 set subscribe_p [expr {[string equal "" $request_id]}]
 
 set url [site_node::get_url_from_object_id -object_id $package_id]
-set toggle_url "${url}toggle-homework-alert?[export_vars {folder_id subscribe_p request_id type_id return_url}]"
+set toggle_url [export_vars -base ${url}toggle-homework-alert {folder_id subscribe_p request_id type_id return_url}]
 
 ad_return_template 

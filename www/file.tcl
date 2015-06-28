@@ -46,12 +46,12 @@ set return_url "[ad_conn url]?[ad_conn query]"
 db_1row file_info {}
 set name [dotlrn_homework::decode_name $name]
 
-set version_add_url "version-add?[export_vars {return_url folder_id file_id name}]"
-set move_url "file-move?[export_vars {file_id name}]"
+set version_add_url [export_vars -base version-add {return_url folder_id file_id name}]
+set move_url [export_vars -base file-move {file_id name}]
 
 # DRB: I'm setting this up but think copy in the homework context is a bad
 # idea so I'm not putting out a link to it.   As of July Sloan agrees.
-set copy_url "file-copy?[export_vars {file_id name}]"
+set copy_url [export_vars -base file-copy {file_id name}]
 
 if {$show_all_versions_p == "t"} {
     set show_versions [db_map show_all_versions]
@@ -65,7 +65,7 @@ set action_exists_p 0
 db_multirow -extend {download_url} version version_info {}  {
     set version_name [dotlrn_homework::decode_name $version_name]
 
-    set download_url "${file_storage_url}/download/[ns_urlencode $version_name]?[export_vars {version_id}]"
+    set download_url [export_vars -base ${file_storage_url}/download/$version_name {version_id}]
     if { [string is true $delete_p] } {
         set action_exists_p 1
     }

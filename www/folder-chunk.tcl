@@ -35,16 +35,16 @@ if { [llength $list_of_folder_ids] == 1 } {
     set folder_id [lindex $list_of_folder_ids 0]
     if { $show_upload_url_p } {
         template::multirow append toolbar "[_ dotlrn-homework.lt_submit_new_assign]" \
-            "${url}file-add?[export_vars {folder_id return_url}]"
+            [export_vars -base ${url}file-add {folder_id return_url}]
     }
     if { $admin_actions_p } {
         template::multirow append toolbar "[_ dotlrn-homework.lt_create_new_folder]" \
-            "${url}folder-create?[export_vars {{parent_id $folder_id} return_url}]"
+            [export_vars -base ${url}folder-create {{parent_id $folder_id} return_url}]
 
         # Even a community admin can't delete the root homework folder
         if { ![string equal $folder_id [fs::get_root_folder -package_id [ad_conn package_id]]] } {
             template::multirow append toolbar "[_ dotlrn-homework.lt_delete_folder]" \
-                "${url}folder-delete?[export_vars {folder_id}]"
+                [export_vars -base ${url}folder-delete {folder_id}]
         }
     }
 }
@@ -79,7 +79,7 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
 	
 	regsub -all " " $spaces {\&nbsp;\&nbsp;} spaces
 	if {$content_type eq "content_folder"} {
-	    set contents_url "${url}folder-contents?[export_vars {{folder_id $object_id} return_url}]"
+	    set contents_url [export_vars -base ${url}folder-contents {{folder_id $object_id} return_url}]
 	} else {
 
         if { $user_id != $creation_user } {
@@ -90,18 +90,27 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
         set name [dotlrn_homework::decode_name $name]
 
         # If the user can read the file the user can read the file's details
-        set view_details_url "${url}file?[export_vars {folder_id {file_id $object_id}}]"
+        set view_details_url [export_vars -base ${url}file {folder_id {file_id $object_id}}]
 
         # And download the latest revision
         set file_storage_url [dotlrn_homework::get_file_storage_url]
-        set download_url "${file_storage_url}/download/[ns_urlencode $name]?[export_vars {version_id}]"
+        set download_url [export_vars -base ${file_storage_url}/download/$name {version_id}]
 
         # Admin and students can read correction files but only an admin can add one ...
         if { $homework_file_id ne "" } {
-            set view_correction_details_url "${url}file?[export_vars {folder_id {file_id $homework_file_id} {show_all_versions_p "t"}}]"
+            set view_correction_details_url [export_vars -base ${url}file {
+		folder_id
+		{file_id $homework_file_id}
+		{show_all_versions_p "t"}
+	    }]
         } elseif { $admin_p } {
             set upload_correction_url \
-                "${url}file-add?[export_vars {folder_id return_url {name "$title - [_ dotlrn-homework.Comments]"} {homework_file_id $object_id}}]"
+                [export_vars -base ${url}file-add {
+		    folder_id
+		    return_url
+		    {name "$title - [_ dotlrn-homework.Comments]"}
+		    {homework_file_id $object_id}
+		}]
         }
     }
 }
