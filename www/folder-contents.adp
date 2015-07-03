@@ -1,6 +1,6 @@
 <master src="master">
-  <property name="title">#dotlrn-homework.lt_Contents_of_folder_na#</property>
-  <property name="context_bar">@context_bar;noquote@</property>
+  <property name="doc(title)">#dotlrn-homework.lt_Contents_of_folder_na#</property>
+  <property name="context_bar">@context_bar;literal@</property>
 
 <table border="0" cellpadding="2" cellspacing="2" width="100%">
   <include src="folder-chunk" admin_actions_p="@admin_actions_p@" show_upload_url_p="@show_upload_url_p@" show_header_p="1"

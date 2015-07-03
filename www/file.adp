@@ -1,6 +1,6 @@
 <master src="master">
-<property name="title">@name@/@title@</property>
-<property name="context_bar">@context_bar@</property>
+<property name="doc(title)">@name@/@title@</property>
+<property name="context_bar">@context_bar;literal@</property>
 
   <p>
   [<if @show_all_versions_p@ true>

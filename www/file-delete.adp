@@ -1,6 +1,6 @@
 <master src="master">
-<property name="title">#dotlrn-homework.Delete_title#</property>
-<property name="context_bar">@context_bar@</property>
+<property name="doc(title)">#dotlrn-homework.Delete_title#</property>
+<property name="context_bar">@context_bar;literal@</property>
 
 <if @blocked_p@ eq "t">
 

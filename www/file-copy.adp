@@ -1,6 +1,6 @@
 <master src="master">
-<property name="title">#dotlrn-homework.Copy#</property>
-<property name="context_bar">@context_bar@</property>
+<property name="doc(title)">#dotlrn-homework.Copy#</property>
+<property name="context_bar">@context_bar;literal@</property>
 
 <P>#dotlrn-homework.lt_Select_the_folder_tha#
 

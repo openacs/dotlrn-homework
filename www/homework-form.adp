@@ -1,5 +1,5 @@
 <master src="master">
-  <property name="title">@page_title@</property>
-  <property name="context_bar">@context_bar@</property>
+  <property name="doc(title)">@page_title;literal@</property>
+  <property name="context_bar">@context_bar;literal@</property>
 
 <formtemplate id="homework_form" style="plainest"></formtemplate>
