@@ -2,6 +2,6 @@
   <br>
 </if>
 <else>
-  <include src="folder-chunk" admin_actions_p=@admin_actions_p@ show_upload_url_p="@show_upload_url_p@" show_header_p="0"
-           admin_p="@admin_p@" min_level="@min_level@" max_level="@max_level@" list_of_folder_ids="@list_of_folder_ids@" package_id="@package_id@">
+  <include src="folder-chunk" admin_actions_p="@admin_actions_p;literal@" show_upload_url_p="@show_upload_url_p;literal@" show_header_p="0"
+           admin_p="@admin_p;literal@" min_level="@min_level;literal@" max_level="@max_level;literal@" list_of_folder_ids="@list_of_folder_ids;literal@" package_id="@package_id;literal@">
 </else>
