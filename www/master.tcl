@@ -3,3 +3,9 @@ foreach elem $context_bar {
     lappend cmd $elem
 }
 set context_bar [eval $cmd]
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -43,3 +43,9 @@ set show_upload_url_p [expr {!$admin_p && [permission::permission_p -object_id $
 set admin_actions_p [string is true $admin_p]
 
 ad_return_template 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

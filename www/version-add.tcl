@@ -72,3 +72,9 @@ ad_form -name homework_form -html { enctype multipart/form-data } -export { retu
 }
 
 ad_return_template homework-form
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

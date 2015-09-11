@@ -91,3 +91,9 @@ ad_form -extend -name homework_form -form {
 }
 
 ad_return_template "homework-form"
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
