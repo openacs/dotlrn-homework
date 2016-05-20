@@ -8,7 +8,7 @@ ad_page_contract {
     file_id:integer,notnull
     folder_id:integer,notnull
     name:notnull
-    return_url:notnull
+    return_url:localurl,notnull
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if {![fs_folder_p $folder_id]} {

@@ -7,7 +7,7 @@ ad_page_contract {
 } {
     folder_id:naturalnum,notnull
     name:optional
-    return_url:notnull
+    return_url:localurl,notnull
     {homework_file_id:naturalnum,notnull 0}
 } -validate {
     valid_folder -requires {folder_id:integer} {

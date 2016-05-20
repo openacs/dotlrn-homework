@@ -15,7 +15,7 @@
         <maturity>2</maturity>
 
         <provides url="dotlrn-homework" version="2.9.0"/>
-        <requires url="dotlrn" version="2.9.0"/>
+        <requires url="dotlrn" version="2.9.1d2"/>
         <requires url="dotlrn-fs" version="2.9.0"/>
         <requires url="new-portal" version="2.9.0"/>
 

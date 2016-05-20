@@ -7,7 +7,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     parent_id:integer,notnull
-    return_url:notnull
+    return_url:localurl,notnull
 } -validate {
     valid_folder -requires {parent_id:integer} {
 	if {![fs_folder_p $parent_id]} {

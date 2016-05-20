@@ -13,7 +13,7 @@ ad_page_contract {
     request_id:integer
     type_id:integer,notnull
     subscribe_p:boolean,notnull
-    return_url:notnull
+    return_url:localurl,notnull
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if {![fs_folder_p $folder_id]} {
