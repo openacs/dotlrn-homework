@@ -23,14 +23,14 @@ for each homework assignment.</p>
 <p>Administrators can ask to be notified by e-mail when a student
 uploads a new homework file. Likewise, students are notified when a
 comment or correction file is uploaded by a grader.</p>
-<p>Students can only access homework files they've uploaded
-themselves along with each file's associated comments and
+<p>Students can only access homework files they&#39;ve uploaded
+themselves along with each file&#39;s associated comments and
 corrections files.</p>
 <p>Two applets and their associated portlets are provided:</p>
 <dl>
 <dt>User applet</dt><dd>
 <p>When added to a class home portal page students will see a list
-of folders and links to homework files they've uploaded for the
+of folders and links to homework files they&#39;ve uploaded for the
 class. In addition a link is provided that allows students to
 upload a new homework file.</p><p>Administrators (professors, etc) see a collapsed view which
 displays a single link to the homework folder display page for the
@@ -55,8 +55,8 @@ package. The requirements and design documents for the File Storage
 package apply directly to the dotLRN Homework package.
 <p>The dotLRN Homework package differs from File Storage mostly in
 the actions that are made available to various classes of users and
-by the fact that the content repository's item-to-object mapping
-functionality is used to map a set of zero or more
+by the fact that the content repository&#39;s item-to-object
+mapping functionality is used to map a set of zero or more
 comment/correction files to each homework file. Actions are
 restricted by use of the acs permissions system. The user interface
 has been modified slightly to simplify the uploading of
