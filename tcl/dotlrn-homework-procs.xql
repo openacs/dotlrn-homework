@@ -8,16 +8,6 @@
 </fullquery>
 
  
-<fullquery name="dotlrn_homework::new.update_context">      
-   <querytext>
-      
-     update acs_objects
-     set context_id = null
-     where object_id = :file_id
-            
-   </querytext>
-</fullquery>
-
 <fullquery name="dotlrn_homework::new.live_version_title">      
    <querytext>
 
