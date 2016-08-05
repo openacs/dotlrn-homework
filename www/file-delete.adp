@@ -10,14 +10,14 @@
 <else>
 
 <form method=POST action=file-delete>
-<input type=hidden name=file_id value=@file_id@>
-<input type=hidden name=confirmed_p value="t">
+<input type="hidden" name="file_id" value="@file_id@">
+<input type="hidden" name="confirmed_p" value="t">
 
 <p>#dotlrn-homework.lt_Are_you_sure_you_want#
 
 <p>
 <center>
-<input type=submit value="#dotlrn-homework.lt_Yes_delete_it#">
+<input type="submit" value="#dotlrn-homework.lt_Yes_delete_it#">
 </center>
 </form>
 

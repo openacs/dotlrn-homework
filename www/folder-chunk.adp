@@ -11,7 +11,7 @@
   </if>
 
   <if @folders:rowcount@ eq 0>
-     <i>#dotlrn-homework.Folder_is_empty#</i>
+     <em>#dotlrn-homework.Folder_is_empty#</em>
   </if>
   <else>
     <if @admin_p@ true and @show_header_p@ true>

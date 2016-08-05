@@ -5,10 +5,10 @@
   <ul>
     <li>
       <if @subscribe_p@ false>
-        <b>#dotlrn-homework.Alert#</b> | <a href="@toggle_url@" title="#dotlrn-homework.Do_not_alert#">#dotlrn-homework.Do_not_alert#</a>
+        <strong>#dotlrn-homework.Alert#</strong> | <a href="@toggle_url@" title="#dotlrn-homework.Do_not_alert#">#dotlrn-homework.Do_not_alert#</a>
       </if>
       <else>
-        <a href="@toggle_url@" title="#dotlrn-homework.Alert#">#dotlrn-homework.Alert#</a> | <b>#dotlrn-homework.Do_not_alert#</b>
+        <a href="@toggle_url@" title="#dotlrn-homework.Alert#">#dotlrn-homework.Alert#</a> | <strong>#dotlrn-homework.Do_not_alert#</strong>
       </else>
       #dotlrn-homework.lt_me_when_homework_file#
     </li>
