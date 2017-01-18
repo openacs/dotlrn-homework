@@ -1,10 +1,10 @@
-<if @shaded_p@ true>
+<if @shaded_p;literal@ true>
   <br>
 </if>
 <else>
   <ul>
     <li>
-      <if @subscribe_p@ false>
+      <if @subscribe_p;literal@ false>
         <strong>#dotlrn-homework.Alert#</strong> | <a href="@toggle_url@" title="#dotlrn-homework.Do_not_alert#">#dotlrn-homework.Do_not_alert#</a>
       </if>
       <else>

@@ -2,7 +2,7 @@
 <property name="doc(title)">#dotlrn-homework.Delete_title#</property>
 <property name="context_bar">@context_bar;literal@</property>
 
-<if @blocked_p@ eq "t">
+<if @blocked_p;literal@ true>
 
 <p>#dotlrn-homework.lt_This_file_has_version#
 

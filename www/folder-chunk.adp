@@ -27,11 +27,11 @@
       <p>
     </if>
     <table border="0" class="table-display" cellpadding="5" cellspacing="0" width="85%">
-      <if @show_header_p@ true>
+      <if @show_header_p;literal@ true>
         <tr class="table-header">
           <td>&nbsp;</td>
           <td>#dotlrn-homework.Title#</td>
-          <if @show_users_p@ true>
+          <if @show_users_p;literal@ true>
             <td>#dotlrn-homework.Student#</td>
           </if>
 	<else>
@@ -55,7 +55,7 @@
           <td align="left">@folders.spaces;noquote@<a href="@folders.download_url@"><img style="border:0" src="@file_storage_url@/graphics/file.gif"></a></td>
           <td><a href="@folders.download_url@">@folders.name@</a><br><if @folders.name@ ne @folders.title@><span style="color: \#999;">@folders.title@</span></if></td>
           <td>
-            <if @show_users_p@ true>
+            <if @show_users_p;literal@ true>
               @folders.file_owner_name@
             </if>
           </td>
@@ -65,7 +65,7 @@
                | <a href="@folders.upload_correction_url@">#dotlrn-homework.View#</a>
              </if>
              <if @folders.view_correction_details_url@ not nil>
-               | <a href="@folders.view_correction_details_url@">#dotlrn-homework.View_1#<if @admin_p@ true>#dotlrn-homework.lt_or_edit#</if> #dotlrn-homework.Comments#</a>
+               | <a href="@folders.view_correction_details_url@">#dotlrn-homework.View_1#<if @admin_p;literal@ true>#dotlrn-homework.lt_or_edit#</if> #dotlrn-homework.Comments#</a>
              </if>
           </small></td>
       </else>
