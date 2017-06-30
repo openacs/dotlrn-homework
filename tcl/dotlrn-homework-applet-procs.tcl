@@ -79,7 +79,7 @@ namespace eval dotlrn_homework_applet {
         Remove portlet
         @param portal_id The page from remove portlet.
     } {
-        ad_return_complaint 1  "[applet_key] remove_portlet not implimented!"
+        ad_return_complaint 1  "[applet_key] remove_portlet not implemented!"
     }
 
 
@@ -175,7 +175,7 @@ namespace eval dotlrn_homework_applet {
     ad_proc -public add_user {
         user_id
     } {
-        One time user-specfic init
+        One time user-specific init
     } {
         # no-op
     }
