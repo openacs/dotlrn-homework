@@ -116,3 +116,9 @@ db_multirow -extend {pretty_name download_url upload_version_url view_details_ur
 }
 
 ad_return_template 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

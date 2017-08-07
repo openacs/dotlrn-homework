@@ -64,7 +64,7 @@ namespace eval dotlrn_homework_portlet {
         Remove portlet
         @param portal_id The page from remove portlet.
     } {
-        ad_return_complaint 1  "[applet_key] remove_portlet not implimented!"
+        ad_return_complaint 1  "[applet_key] remove_portlet not implemented!"
     }
     
     ad_proc -public add_portlet_helper {
@@ -210,3 +210,9 @@ namespace eval dotlrn_homework_admin_portlet {
     }
 
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

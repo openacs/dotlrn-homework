@@ -49,3 +49,9 @@ set url [site_node::get_url_from_object_id -object_id $package_id]
 set toggle_url [export_vars -base ${url}toggle-homework-alert {folder_id subscribe_p request_id type_id return_url}]
 
 ad_return_template 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

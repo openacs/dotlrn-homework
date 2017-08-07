@@ -1,4 +1,4 @@
-<if @shaded_p@ true>
+<if @shaded_p;literal@ true>
   <br>
 </if>
 <else>

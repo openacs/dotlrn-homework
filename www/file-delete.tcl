@@ -69,3 +69,9 @@ if {$confirmed_p == "t" && $blocked_p == "f" } {
 
     ad_return_template
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -8,7 +8,7 @@ ad_page_contract {
     file_id:integer,notnull
     folder_id:integer,notnull
     name:notnull
-    return_url:notnull
+    return_url:localurl,notnull
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if {![fs_folder_p $folder_id]} {
@@ -72,3 +72,9 @@ ad_form -name homework_form -html { enctype multipart/form-data } -export { retu
 }
 
 ad_return_template homework-form
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

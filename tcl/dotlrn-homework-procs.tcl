@@ -134,11 +134,16 @@ namespace eval dotlrn_homework {
             # This hack will leave the site-wide admin able to munge user homework files.  That's probably
             # a good thing ...
 
-            db_dml update_context {}
+            db_dml update_context {
+                update acs_objects
+                set context_id = null
+                where object_id = :file_id
+            }
 
+            set community_id [dotlrn_community::get_community_id]
             set admins [dotlrn_community::get_rel_segment_id \
-                -community_id [dotlrn_community::get_community_id] \
-                -rel_type dotlrn_admin_rel]
+                            -community_id $community_id \
+                            -rel_type dotlrn_admin_rel]
 
             # admins of this community can admin the file
             permission::grant -party_id $admins -object_id $file_id -privilege admin
@@ -315,3 +320,9 @@ namespace eval dotlrn_homework {
     }
 
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

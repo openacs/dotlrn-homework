@@ -182,3 +182,9 @@ ad_proc -private dotlrn_homework::apm_callbacks::package_uninstall {} {
 
     }
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

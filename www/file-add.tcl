@@ -7,7 +7,7 @@ ad_page_contract {
 } {
     folder_id:naturalnum,notnull
     name:optional
-    return_url:notnull
+    return_url:localurl,notnull
     {homework_file_id:naturalnum,notnull 0}
 } -validate {
     valid_folder -requires {folder_id:integer} {
@@ -62,12 +62,18 @@ ad_form -extend -name homework_form -form {
 
     db_transaction {
 
-        dotlrn_homework::new -file_id $file_id -new_file_p 1 -parent_folder_id $folder_id -title $name \
-            -description $description -upload_file $upload_file -homework_file_id $homework_file_id -package_id [ad_conn package_id]
+        dotlrn_homework::new \
+            -file_id $file_id \
+            -new_file_p 1 \
+            -parent_folder_id $folder_id \
+            -title $name \
+            -description $description \
+            -upload_file $upload_file \
+            -homework_file_id $homework_file_id \
+            -package_id [ad_conn package_id]
 
         # Alert management.  Semantics are hardwired to Sloan's spec.  Eventually it would probably be nice
         # to make 'em configurable for non-admin users as they are now for admin users
-
         if { $homework_file_id == 0 } {
 
             # We're uploading a new homework file, send alerts associated with our folder
@@ -77,7 +83,6 @@ ad_form -extend -name homework_form -form {
             dotlrn_homework::request_correction_alert -homework_file_id $file_id
 
         } else {
-
             # We're uploading a correction file, send alerts associated with the related homework file
             dotlrn_homework::send_correction_alerts -folder_id $folder_id -homework_file_id $homework_file_id
 
@@ -91,3 +96,9 @@ ad_form -extend -name homework_form -form {
 }
 
 ad_return_template "homework-form"
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
