@@ -34,6 +34,7 @@ if { $subscribe_p } {
 
     if { [llength $intervals] != 1 || [llength $delivery_methods] != 1 } {
         ad_return_error "[_ dotlrn-homework.lt_internal_error]" "[_ dotlrn-homework.lt_interval_or_del]"
+        ad_script_abort
     }
 
     # The get routines return a list of name/id pairs so extract the ids
