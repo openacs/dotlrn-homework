@@ -144,7 +144,7 @@ namespace eval dotlrn_homework_applet {
     ad_proc -public add_applet_to_community {
         community_id
     } {
-        Add the homework applet to a specifc dotlrn community
+        Add the homework applet to a specific dotlrn community
     } {
         set portal_id [dotlrn_community::get_portal_id -community_id $community_id]
         set package_id [dotlrn::instantiate_and_mount $community_id [package_key]]
@@ -167,7 +167,7 @@ namespace eval dotlrn_homework_applet {
     ad_proc -public remove_applet_from_community {
         community_id
     } {
-        remove the fs applet from a specifc dotlrn community
+        remove the fs applet from a specific dotlrn community
     } {
         ad_return_complaint 1 "[applet_key] remove_applet_from_community not implemented!"
     }
@@ -191,7 +191,7 @@ namespace eval dotlrn_homework_applet {
         community_id
         user_id
     } {
-        Add a user to a to a specifc dotlrn community
+        Add a user to a to a specific dotlrn community
     } {
         # no-op
     }
