@@ -45,7 +45,7 @@ namespace eval dotlrn_homework_portlet {
         {-portal_id:required}
     } {
 
-        Adds a porlet.
+        Adds a portlet.
         @param portal_id The page to add portlet.
     } {
         set args [ns_set create]

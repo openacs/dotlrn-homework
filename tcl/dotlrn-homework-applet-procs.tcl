@@ -67,7 +67,7 @@ namespace eval dotlrn_homework_applet {
         portal_id
     } {
 
-        Adds a porlet.
+        Adds a portlet.
         @param portal_id The page to add portlet.
     } {
         dotlrn_homework_portlet::add_portlet -portal_id $portal_id
