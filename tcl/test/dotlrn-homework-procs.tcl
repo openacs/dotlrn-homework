@@ -26,6 +26,13 @@ aa_register_case -cats { api } \
 			set params([lindex $param 0]) [lindex $param 1]
 		    }
 
+                    # portal element parameters might report a
+                    # package_id of 0... this would make much things
+                    # fail afterwards
+                    if {[apm_package_key_from_id $params(package_id)] eq ""} {
+                        aa_log "Element $element_id not associated with a valid package -> \$params(package_id) = $params(package_id). Skipping this test."
+                        continue
+                    }
 
 		    set test_package_id [ad_conn package_id]
 		    set package_id [site_node::closest_ancestor_package -url [site_node::get_url_from_object_id -object_id $params(package_id)] -package_key dotlrn]
