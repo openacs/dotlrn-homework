@@ -152,6 +152,8 @@ namespace eval dotlrn_homework_admin_portlet {
 
     ad_proc -public get_pretty_name {
     } {
+        Get the pretty name.
+    } {
         return "#dotlrn-homework.homework_pretty_admin#"
     }
 
@@ -191,7 +193,7 @@ namespace eval dotlrn_homework_admin_portlet {
         {-package_id:required}
         {-folder_id:required}
     } {
-          Removes a homework PE from the given page
+        Removes a homework PE from the given page.
     } {
         portal::remove_element_parameters \
             -portal_id $portal_id \
@@ -204,12 +206,12 @@ namespace eval dotlrn_homework_admin_portlet {
     ad_proc -public show {
          cf
     } {
+        Show the homework admin portlet.
     } {
         portal::show_proc_helper \
             -package_key [my_package_key] \
             -config_list $cf \
             -template_src "dotlrn-homework-admin-portlet"
-
     }
 
 }
