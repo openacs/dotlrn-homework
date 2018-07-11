@@ -159,6 +159,8 @@ namespace eval dotlrn_homework_admin_portlet {
 
     ad_proc -public link {
     } {
+        Get the link. This is currently empty.
+    } {
         return ""
     }
 
