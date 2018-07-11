@@ -33,10 +33,14 @@ namespace eval dotlrn_homework_portlet {
 
     ad_proc -public get_pretty_name {
     } {
+        Get the pretty name.
+    } {
         return "#dotlrn-homework.pretty_name#"
     }
 
     ad_proc -public link {
+    } {
+        Get the link. This is currently empty.
     } {
         return ""
     }
@@ -61,7 +65,7 @@ namespace eval dotlrn_homework_portlet {
     ad_proc -public remove_portlet {
         {-portal_id:required}
     } {
-        Remove portlet
+        Remove portlet.
         @param portal_id The page from remove portlet.
     } {
         ad_return_complaint 1  "[applet_key] remove_portlet not implemented!"
@@ -111,7 +115,7 @@ namespace eval dotlrn_homework_portlet {
         {-package_id:required}
         {-folder_id:required}
     } {
-          Removes a homework PE from the given page
+          Removes a homework PE from the given page.
     } {
         portal::remove_element_parameters \
             -portal_id $portal_id \
@@ -124,13 +128,12 @@ namespace eval dotlrn_homework_portlet {
     ad_proc -public show {
          cf
     } {
+        Show the homework portlet.
     } {
-
         portal::show_proc_helper \
             -package_key [my_package_key] \
             -config_list $cf \
             -template_src "dotlrn-homework-portlet"
-
     }
 
 }
