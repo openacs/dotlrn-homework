@@ -1,4 +1,4 @@
-  <if @toolbar:rowcount@ gt 0>
+  <if @toolbar:rowcount;literal@ gt 0>
        <small>[
          <multiple name="toolbar">
            <if @toolbar.rownum@ ne 1>
@@ -10,7 +10,7 @@
      <br><br>
   </if>
 
-  <if @folders:rowcount@ eq 0>
+  <if @folders:rowcount;literal@ eq 0>
      <em>#dotlrn-homework.Folder_is_empty#</em>
   </if>
   <else>
