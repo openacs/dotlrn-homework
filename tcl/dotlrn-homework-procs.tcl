@@ -6,7 +6,7 @@ ad_library {
 
 }
 
-ad_proc dotlrn_homework_post_instantiation {
+ad_proc -deprecated dotlrn_homework_post_instantiation {
     package_id
 } {
 
@@ -17,6 +17,12 @@ ad_proc dotlrn_homework_post_instantiation {
     This proc is automatically called by the APM whenever an instance of dotlrn_homework
     is mounted.
 
+    DEPRECATED: this is probably the only leftover in current upstream
+    code of "old-style" after_instantiate callbacks. The previous
+    machinery was based on a naming convention, which would not be
+    compatible with OpenACS standard for proc naming.
+
+    @see dotlrn_homework::apm_callbacks::after_instantiate
 } {
     return [fs::new_root_folder -package_id $package_id]
 }
