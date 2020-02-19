@@ -47,7 +47,7 @@
   <msg key="lt_one_folder">Una carpeta</msg>
   <msg key="lt_or_edit">/Editar</msg>
   <msg key="lt_Select_the_folder_tha">Seleccione la carpeta en la que le gustaría copiar el archivo &quot;%file_name%&quot;</msg>
-  <msg key="lt_Select_the_folder_tha_1">Seleccione la carpeta a la que le gustaría mover el archivo &quot;%file_name%&quot;</msg>
+  <msg key="lt_Select_the_folder_tha_1">Seleccione la carpeta a la que le gustaría mover el archivo &quot;%name%&quot;</msg>
   <msg key="lt_Show_only_live_versio">Mostar solo la version actual</msg>
   <msg key="lt_spec_folder">La carpeta especificada no es válida</msg>
   <msg key="lt_spec_parent">La carpeta padre no es válida.</msg>
