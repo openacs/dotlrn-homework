@@ -63,6 +63,37 @@ aa_register_case -cats { api } \
 		}
 	    }
     }
+
+
+aa_register_case -procs {
+        dotlrn_homework_admin_portlet::link
+        dotlrn_homework_portlet::link
+    } -cats {
+        api
+        production_safe
+    } dotlrn_homework_portlet_links {
+        Test diverse link procs.
+} {
+    aa_equals "dotLRN homework admin portlet link" "[dotlrn_homework_admin_portlet::link]" ""
+    aa_equals "dotLRN homework portlet link"       "[dotlrn_homework_portlet::link]" ""
+}
+
+aa_register_case -procs {
+        dotlrn_homework_applet::package_key
+        dotlrn_homework_applet::my_package_key
+        dotlrn_homework_applet::applet_key
+    } -cats {
+        api
+        smoke
+        production_safe
+    } dotlrn_homework_applet_keys {
+        Simple test for the various dotlrn_homework_applet::..._key procs.
+} {
+    aa_equals "Package key"     "[dotlrn_homework_applet::package_key]"     "dotlrn-homework"
+    aa_equals "My Package key"  "[dotlrn_homework_applet::my_package_key]"  "dotlrn-homework"
+    aa_equals "Applet key"      "[dotlrn_homework_applet::applet_key]"      "dotlrn_homework_applet"
+}
+
 # Local variables:
 #    mode: tcl
 #    tcl-indent-level: 4
