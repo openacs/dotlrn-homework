@@ -100,6 +100,18 @@ aa_register_case -procs {
     aa_equals "Applet key"      "[dotlrn_homework_applet::applet_key]"      "dotlrn_homework_applet"
 }
 
+aa_register_case -procs {
+        dotlrn_homework::get_file_storage_url
+    } -cats {
+        api
+        smoke
+        production_safe
+    } dotlrn_homework_get_file_storage_url {
+        Simple test for the dotlrn_homework::get_file_storage_url proc.
+} {
+    aa_equals "File storage URL" "[dotlrn_homework::get_file_storage_url]" "/dotlrn/file-storage"
+}
+
 # Local variables:
 #    mode: tcl
 #    tcl-indent-level: 4
