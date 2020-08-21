@@ -68,14 +68,20 @@ aa_register_case -cats { api } \
 aa_register_case -procs {
         dotlrn_homework_admin_portlet::link
         dotlrn_homework_portlet::link
+        dotlrn_homework_admin_portlet::get_pretty_name
+        dotlrn_homework_applet::get_pretty_name
+        dotlrn_homework_portlet::get_pretty_name
     } -cats {
         api
         production_safe
-    } dotlrn_homework_portlet_links {
-        Test diverse link procs.
+    } dotlrn_homework_portlet_links_names {
+        Test diverse link and name procs.
 } {
-    aa_equals "dotLRN homework admin portlet link" "[dotlrn_homework_admin_portlet::link]" ""
-    aa_equals "dotLRN homework portlet link"       "[dotlrn_homework_portlet::link]" ""
+    aa_equals "dotLRN homework admin portlet link"          "[dotlrn_homework_admin_portlet::link]" ""
+    aa_equals "dotLRN homework portlet link"                "[dotlrn_homework_portlet::link]" ""
+    aa_equals "dotLRN homework admin portlet pretty name"   "[dotlrn_homework_admin_portlet::get_pretty_name]" "#dotlrn-homework.homework_pretty_admin#"
+    aa_equals "dotLRN homework applet pretty name"          "[dotlrn_homework_applet::get_pretty_name]" "[_ dotlrn-homework.pretty_name]"
+    aa_equals "dotLRN homework portlet pretty name"         "[dotlrn_homework_portlet::get_pretty_name]" "#dotlrn-homework.pretty_name#"
 }
 
 aa_register_case -procs {
