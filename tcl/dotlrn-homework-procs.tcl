@@ -10,7 +10,7 @@ ad_proc -deprecated dotlrn_homework_post_instantiation {
     package_id
 } {
 
-    Post package instantiation procedure to insert a package_id, 
+    Post package instantiation procedure to insert a package_id,
     folder_id pair in fs_root_folders.   The homework package wants its own root folder
     because we don't want it to be visible to any mounted instance of file storage.
 
@@ -67,7 +67,7 @@ namespace eval dotlrn_homework {
         -description:required
         -upload_file:required
         -homework_file_id
-	{-package_id ""}
+        {-package_id ""}
     } {
 
         Build a new content revision in the given folder.  If new_file_p is set true then
@@ -95,7 +95,7 @@ namespace eval dotlrn_homework {
         set tmp_filename [template::util::file::get_property tmp_filename $upload_file]
 
         # The content repository is kinda stupid about mime types,
-        # so we have to check if we know about this one and possibly 
+        # so we have to check if we know about this one and possibly
         # add it.
         set mime_type [cr_filename_to_mime_type $filename]
 
@@ -114,21 +114,21 @@ namespace eval dotlrn_homework {
 
             if { [db_0or1row check_duplicate {}]} {
 
-		# AG: Make a reasonable attempt at avoiding collisions by
-		# converting a duplicate filename foo.txt to foo-2.txt,
-		# foo-3.txt and so on.
-		set success_p 0
-		set saved_filename $encoded_filename
-		for {set i 2} {$i < 11} {incr i} {
-		    set encoded_filename "[file rootname $saved_filename]-${i}[file extension $saved_filename]"
-		    if { ![db_0or1row check_duplicate {}]} {
-			set success_p 1
-			break
-		    }
-		}
-		if { !$success_p } {
-		    return -code error "[_ dotlrn-homework.lt_file_named]"
-		}
+                # AG: Make a reasonable attempt at avoiding collisions by
+                # converting a duplicate filename foo.txt to foo-2.txt,
+                # foo-3.txt and so on.
+                set success_p 0
+                set saved_filename $encoded_filename
+                for {set i 2} {$i < 11} {incr i} {
+                    set encoded_filename "[file rootname $saved_filename]-${i}[file extension $saved_filename]"
+                    if { ![db_0or1row check_duplicate {}]} {
+                    set success_p 1
+                    break
+                    }
+                }
+                if { !$success_p } {
+                    return -code error "[_ dotlrn-homework.lt_file_named]"
+                }
             }
 
             db_exec_plsql new_lob_file {}
@@ -153,7 +153,7 @@ namespace eval dotlrn_homework {
 
             # admins of this community can admin the file
             permission::grant -party_id $admins -object_id $file_id -privilege admin
-            
+
             if { $homework_file_id == 0 } {
 
                 # The student uploading a homework file can read and edit it
@@ -175,12 +175,12 @@ namespace eval dotlrn_homework {
 
         } else {
 
-	    # When updating we simply query for the title of the live
-	    # revision.  The title is used by the new_version query
-	    # below.
-	    set title [db_string live_version_title {}]
+            # When updating we simply query for the title of the live
+            # revision.  The title is used by the new_version query
+            # below.
+            set title [db_string live_version_title {}]
 
-	}
+        }
 
         # Grab key for new revision
         set revision_id [db_exec_plsql new_version {}]
@@ -194,7 +194,7 @@ namespace eval dotlrn_homework {
 
             db_dml lob_content {} -blob_files [list $tmp_filename]
 
-            # Unfortunately, we can only calculate the file size after the lob is uploaded 
+            # Unfortunately, we can only calculate the file size after the lob is uploaded
             db_dml lob_size {}
 
         } else {
@@ -254,7 +254,7 @@ namespace eval dotlrn_homework {
 
         db_1row get_alert_info {}
 
-	set decoded_name [decode_name $name]
+        set decoded_name [decode_name $name]
 
         set message "
 
@@ -282,7 +282,7 @@ namespace eval dotlrn_homework {
 
         db_1row get_alert_info {}
 
-	set decoded_name [decode_name $name]
+        set decoded_name [decode_name $name]
 
         set message "
 
