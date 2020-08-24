@@ -172,7 +172,7 @@ namespace eval dotlrn_homework_applet {
         ad_return_complaint 1 "[applet_key] remove_applet_from_community not implemented!"
     }
 
-    ad_proc -public add_user {
+    ad_proc -private add_user {
         user_id
     } {
         One time user-specific init
@@ -180,14 +180,14 @@ namespace eval dotlrn_homework_applet {
         # no-op
     }
 
-    ad_proc -public remove_user {
+    ad_proc -private remove_user {
         user_id
     } {
     } {
         # no-op
     }
 
-    ad_proc -public add_user_to_community {
+    ad_proc -private add_user_to_community {
         community_id
         user_id
     } {
@@ -196,7 +196,7 @@ namespace eval dotlrn_homework_applet {
         # no-op
     }
 
-    ad_proc -public remove_user_from_community {
+    ad_proc -private remove_user_from_community {
         community_id
         user_id
     } {
