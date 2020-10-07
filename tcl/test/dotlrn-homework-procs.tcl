@@ -115,8 +115,8 @@ aa_register_case -procs {
 aa_register_case -procs {
         dotlrn_homework_portlet::add_self_to_page
         dotlrn_homework_portlet::remove_self_from_page
-        dotlrn_homework_portlet::add_self_to_page
-        dotlrn_homework_portlet::remove_self_from_page
+        dotlrn_homework_admin_portlet::add_self_to_page
+        dotlrn_homework_admin_portlet::remove_self_from_page
     } -cats {
         api
     } dotlrn_homework_portlet_add_remove_from_page {
@@ -175,21 +175,21 @@ aa_register_case -procs {
             #
             # admin_portlet
             #
-            set portlet_name [dotlrn_homework_portlet::get_my_name]
+            set portlet_name [dotlrn_homework_admin_portlet::get_my_name]
             #
             # Add portlet.
             #
-            dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
+            dotlrn_homework_admin_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
             aa_true "Admin portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
             #
             # Remove portlet.
             #
-            dotlrn_homework_portlet::remove_self_from_page -portal_id $portal_id  -package_id $package_id -folder_id $folder_id
+            dotlrn_homework_admin_portlet::remove_self_from_page -portal_id $portal_id  -package_id $package_id -folder_id $folder_id
             aa_false "Admin portlet is in community portal after removal" "[portlet_exists_p $portal_id $portlet_name]"
             #
             # Add portlet.
             #
-            dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
+            dotlrn_homework_admin_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
             aa_true "Admin portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
         } else {
             aa_error "Community creation failed"
