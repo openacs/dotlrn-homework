@@ -112,6 +112,91 @@ aa_register_case -procs {
     aa_equals "File storage URL" "[dotlrn_homework::get_file_storage_url]" "/dotlrn/file-storage"
 }
 
+aa_register_case -procs {
+        dotlrn_homework_portlet::add_self_to_page
+        dotlrn_homework_portlet::remove_self_from_page
+        dotlrn_homework_portlet::add_self_to_page
+        dotlrn_homework_portlet::remove_self_from_page
+    } -cats {
+        api
+    } dotlrn_homework_portlet_add_remove_from_page {
+        Test add/remove portlet procs.
+} {
+    #
+    # Helper proc to check portal elements
+    #
+    proc portlet_exists_p {portal_id portlet_name} {
+        return [db_0or1row portlet_in_portal {
+            select 1 from dual where exists (
+              select 1
+                from portal_element_map pem,
+                     portal_pages pp
+               where pp.portal_id = :portal_id
+                 and pp.page_id = pem.page_id
+                 and pem.name = :portlet_name
+            )
+        }]
+    }
+    #
+    # Start the tests
+    #
+    aa_run_with_teardown -rollback -test_code {
+        #
+        # Create a community and a folder.
+        #
+        # As this is running in a transaction, it should be cleaned up
+        # automatically.
+        #
+        set community_id [dotlrn_community::new -community_type dotlrn_community -pretty_name foo]
+        set folder_id [fs::new_folder -name foo -pretty_name foo -parent_id $community_id]
+        if {$community_id ne ""} {
+            aa_log "Community created: $community_id"
+            set portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
+            set package_id [dotlrn::instantiate_and_mount $community_id [dotlrn_homework_portlet::my_package_key]]
+            #
+            # dotlrn_homework_portlet
+            #
+            set portlet_name [dotlrn_homework_portlet::get_my_name]
+            #
+            # Add portlet.
+            #
+            dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
+            aa_true "Portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
+            #
+            # Remove portlet.
+            #
+            dotlrn_homework_portlet::remove_self_from_page -portal_id $portal_id -package_id $package_id -folder_id $folder_id
+            aa_false "Portlet is in community portal after removal" "[portlet_exists_p $portal_id $portlet_name]"
+            #
+            # Add portlet.
+            #
+            dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
+            aa_true "Portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
+            #
+            # admin_portlet
+            #
+            set portlet_name [dotlrn_homework_portlet::get_my_name]
+            #
+            # Add portlet.
+            #
+            dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
+            aa_true "Admin portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
+            #
+            # Remove portlet.
+            #
+            dotlrn_homework_portlet::remove_self_from_page -portal_id $portal_id  -package_id $package_id -folder_id $folder_id
+            aa_false "Admin portlet is in community portal after removal" "[portlet_exists_p $portal_id $portlet_name]"
+            #
+            # Add portlet.
+            #
+            dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action "" -folder_id $folder_id
+            aa_true "Admin portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
+        } else {
+            aa_error "Community creation failed"
+        }
+    }
+}
+
 # Local variables:
 #    mode: tcl
 #    tcl-indent-level: 4
