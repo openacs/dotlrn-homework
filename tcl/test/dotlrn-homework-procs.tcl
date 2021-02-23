@@ -22,7 +22,7 @@ aa_register_case -cats { api } \
             from portal_element_map
             where name = 'dotlrn_homework_portlet'
         }] {
-            foreach param [portal::element_params_not_cached $element_id] {
+            foreach param [portal::element_params $element_id] {
                 set params([lindex $param 0]) [lindex $param 1]
             }
 
