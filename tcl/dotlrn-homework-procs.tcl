@@ -34,9 +34,9 @@ namespace eval dotlrn_homework {
         unencoded_name
     } {
 
-        Encode the user-supplied file name with the user's ID.  We do this because the homework
+        Encode the user-supplied filename with the user's ID.  We do this because the homework
         folder hides files uploaded by other users and we want to avoid apparently mysterious duplicate
-        file name errors when two different users give their homework assignment the same name.
+        filename errors when two different users give their homework assignment the same name.
 
     } {
         return "${user_id}_$unencoded_name"
