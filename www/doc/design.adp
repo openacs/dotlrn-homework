@@ -1,5 +1,5 @@
 
-<property name="context">{/doc/dotlrn-homework {dotLRN Homework}} {dotLRN Homework Package Design Document}</property>
+<property name="context">{/doc/dotlrn-homework/ {dotLRN Homework}} {dotLRN Homework Package Design Document}</property>
 <property name="doc(title)">dotLRN Homework Package Design Document</property>
 <master>
 <h2>dotLRN Homework Package Design Document</h2>
