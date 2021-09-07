@@ -2,6 +2,7 @@ ad_page_contract {
     Master
 } {
     title:optional
+    {context_bar ""}
 }
 
 if {![info exists title]} {
@@ -11,11 +12,11 @@ if {![info exists title]} {
         set title "Homework"
     }
 }
-set cmd [list ad_context_bar -node_id [site_node::get_parent_id -node_id [ad_conn node_id]] --]
-foreach elem $context_bar { 
-    lappend cmd $elem
-}
-set context_bar [eval $cmd]
+
+set context_bar [ad_context_bar \
+                     -node_id [site_node::get_parent_id \
+                                   -node_id [ad_conn node_id]] -- \
+                     {*}$context_bar]
 
 # Local variables:
 #    mode: tcl
