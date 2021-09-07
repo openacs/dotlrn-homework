@@ -1,3 +1,9 @@
+ad_page_contract {
+    Master
+} {
+    title:optional
+}
+
 if {![info exists title]} {
     if {[info exists doc(title)]} {
         set title $doc(title)
