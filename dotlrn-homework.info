@@ -20,6 +20,7 @@
         <requires url="dotlrn" version="2.10.0"/>
         <requires url="dotlrn-fs" version="2.10.0"/>
         <requires url="new-portal" version="2.10.0"/>
+        <requires url="acs-subsite" version="5.10.1d7"/>
 
         <callbacks>
             <callback type="before-uninstall"  proc="dotlrn_homework::apm_callbacks::package_uninstall"/>

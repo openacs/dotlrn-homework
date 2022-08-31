@@ -64,7 +64,7 @@ ad_form -name homework_form -html { enctype multipart/form-data } -export { retu
         }
 
     } on_error {
-        ad_return_exception_template -params {errmsg} "/packages/acs-subsite/www/shared/db-error"
+        ad_return_exception_template -params {errmsg} "/packages/acs-subsite/lib/shared/db-error"
     }
 
     ad_returnredirect $return_url

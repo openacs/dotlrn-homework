@@ -89,7 +89,7 @@ ad_form -extend -name homework_form -form {
         }
 
     } on_error {
-        ad_return_exception_template -params {errmsg} "/packages/acs-subsite/www/shared/db-error"
+        ad_return_exception_template -params {errmsg} "/packages/acs-subsite/lib/shared/db-error"
     }
 
     ad_returnredirect $return_url
