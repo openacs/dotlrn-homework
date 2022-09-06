@@ -36,7 +36,7 @@ ad_form -name homework_form -html { enctype multipart/form-data } -export { retu
 } -validate {
     {upload_file
       { [file size [template::util::file::get_property tmp_filename $upload_file]] <= [parameter::get -parameter "MaximumFileSize"] }
-      "[_ dotlrn-homework.lt_your_file_is] ([util_commify_number [parameter::get -parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
+      "[_ dotlrn-homework.lt_your_file_is] ([lc_numeric [parameter::get -parameter MaximumFileSize]] [_ dotlrn-homework.bytes])"
     }
 } -edit_data {
 
