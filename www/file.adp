@@ -43,7 +43,7 @@
 
 <multiple name=version>
   <tr>
-    <td> <a href="@version.download_url@"><img src="@file_storage_url@/graphics/file.gif" border="0"></a>
+    <td> <a href="@version.download_url@"><adp:icon name="file"></a>
       <a href="@version.download_url@">@version.version_name@</a>
     </td>
     <td>@version.author@</td>
