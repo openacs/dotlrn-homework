@@ -133,12 +133,14 @@ namespace eval dotlrn_homework {
 
             db_exec_plsql new_lob_file {}
 
-            # The file storage package more or less sucks as the API makes unnecessary assumptions about
-            # the desired permissions.  I'd like to fix that in 4.6 but don't really want to tread on
-            # OF's toes by making more last-minute changes to the OpenACS 4 CVS tip.
+            # The file storage package more or less sucks as the API
+            # makes unnecessary assumptions about the desired
+            # permissions.  I'd like to fix that in 4.6 but don't
+            # really want to step on OF's toes by making more
+            # last-minute changes to the OpenACS 4 CVS tip.
 
-            # This hack will leave the site-wide admin able to munge user homework files.  That's probably
-            # a good thing ...
+            # This hack will leave the site-wide admin able to munge
+            # user homework files.  That's probably a good thing ...
 
             db_dml update_context {
                 update acs_objects
