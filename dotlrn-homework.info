@@ -9,10 +9,10 @@
     <implements-subsite-p>f</implements-subsite-p>
     <inherit-templates-p>t</inherit-templates-p>
     
-    <version name="2.10.1b1" url="http://openacs.org/repository/download/apm/dotlrn-homework-2.10.0.apm">
+    <version name="2.10.1b1" url="http://openacs.org/repository/download/apm/dotlrn-homework-2.10.1b1.apm">
         <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
         <summary>Provides a homework assignment dropboxes for dotLRN classes.</summary>
-        <release-date>2022-10-04</release-date>
+        <release-date>2022.10.1b14</release-date>
         <vendor url="http://dotlrn.org">DotLRN Consortium</vendor>
         <maturity>2</maturity>
 
