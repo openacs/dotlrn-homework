@@ -6,7 +6,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     version_id:integer,notnull
-    {confirmed_p:boolean "f"}
+    {confirmed_p:boolean,notnull f}
 } -validate {
     valid_version -requires {version_id} {
 	if {![fs_version_p $version_id]} {
@@ -24,12 +24,13 @@ ad_page_contract {
 
 permission::require_permission -object_id $version_id -privilege delete
 
-db_1row item_select "
-select item_id
-from   cr_revisions
-where  revision_id = :version_id"
+db_1row item_select {
+    select item_id
+    from   cr_revisions
+    where  revision_id = :version_id
+}
 
-if {$confirmed_p == "t"} {
+if {$confirmed_p} {
     # they have confirmed that they want to delete the version
 
     db_transaction {

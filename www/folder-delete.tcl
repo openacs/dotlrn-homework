@@ -8,7 +8,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     folder_id:integer,notnull
-    {confirmed_p:boolean "f"}
+    {confirmed_p:boolean,notnull f}
 } -validate {
     valid_folder -requires {folder_id:integer} {
 	if {![fs_folder_p $folder_id]} {
@@ -31,7 +31,7 @@ ad_page_contract {
 
 permission::require_permission -object_id $folder_id -privilege delete
 
-if {$confirmed_p == "t"} {
+if {$confirmed_p} {
     # they have confirmed that they want to delete the folder
     db_1row parent_id {}
     db_exec_plsql folder_delete {}
