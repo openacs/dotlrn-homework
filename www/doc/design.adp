@@ -2,6 +2,10 @@
 <property name="context">{/doc/dotlrn-homework/ {dotLRN Homework}} {dotLRN Homework Package Design Document}</property>
 <property name="doc(title)">dotLRN Homework Package Design Document</property>
 <master>
+<style>
+div.sect2 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 16px;}
+div.sect3 > div.itemizedlist > ul.itemizedlist > li.listitem {margin-top: 6px;}
+</style>              
 <h2>dotLRN Homework Package Design Document</h2>
 
 by <a href="mailto:dhogaza\@pacifier.com">Don Baccus</a>
