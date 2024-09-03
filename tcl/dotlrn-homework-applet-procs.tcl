@@ -51,7 +51,7 @@ namespace eval dotlrn_homework_applet {
 
     ad_proc -public add_applet {
     } {
-	Used for one-time init - must be repeatable!
+        Used for one-time init - must be repeatable!
     } {
         dotlrn_applet::add_applet_to_dotlrn -applet_key [applet_key] -package_key [package_key]
     }
@@ -125,7 +125,7 @@ namespace eval dotlrn_homework_applet {
         ]
 
         # Class members can read from and write to the folder.  We'll manipulate direct
-        # perms on files in order to implement the special restrictions placed on members 
+        # perms on files in order to implement the special restrictions placed on members
         # actions
 
         permission::grant -party_id $members -object_id $folder_id -privilege read
@@ -150,20 +150,20 @@ namespace eval dotlrn_homework_applet {
         set package_id [dotlrn::instantiate_and_mount $community_id [package_key]]
 
         set folder_id [create_homework_folder -community_id $community_id -package_id $package_id]
-        
+
         # add the portlet
 
         dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id \
             -folder_id $folder_id -param_action overwrite
 
         # add the admin portlet
-	set admin_portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
-	dotlrn_homework_admin_portlet::add_self_to_page -portal_id $admin_portal_id -package_id $package_id \
+        set admin_portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
+        dotlrn_homework_admin_portlet::add_self_to_page -portal_id $admin_portal_id -package_id $package_id \
             -folder_id $folder_id -param_action overwrite
 
         return $package_id
     }
-    
+
     ad_proc -public remove_applet_from_community {
         community_id
     } {
@@ -172,7 +172,7 @@ namespace eval dotlrn_homework_applet {
         ad_return_complaint 1 "[applet_key] remove_applet_from_community not implemented!"
     }
 
-    ad_proc -public add_user {
+    ad_proc -private add_user {
         user_id
     } {
         One time user-specific init
@@ -180,14 +180,14 @@ namespace eval dotlrn_homework_applet {
         # no-op
     }
 
-    ad_proc -public remove_user {
+    ad_proc -private remove_user {
         user_id
     } {
     } {
         # no-op
     }
 
-    ad_proc -public add_user_to_community {
+    ad_proc -private add_user_to_community {
         community_id
         user_id
     } {
@@ -196,7 +196,7 @@ namespace eval dotlrn_homework_applet {
         # no-op
     }
 
-    ad_proc -public remove_user_from_community {
+    ad_proc -private remove_user_from_community {
         community_id
         user_id
     } {
@@ -223,26 +223,26 @@ namespace eval dotlrn_homework_applet {
 
         # this code is copied from add_applet_to_community above
         # they should be refactored together
-        
+
         # get the old comm's root folder id
         set old_package_id [dotlrn_community::get_applet_package_id -community_id $old_community_id -applet_key [applet_key]]
         set old_root_folder [fs::get_root_folder -package_id $old_package_id]
-        
+
         # do homework folder stuff
 
         set portal_id [dotlrn_community::get_portal_id -community_id $new_community_id]
         set package_id [dotlrn::instantiate_and_mount $new_community_id [package_key]]
 
         set folder_id [create_homework_folder -community_id $new_community_id -package_id $package_id]
-        
+
         # add the portlet
 
         dotlrn_homework_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id \
             -folder_id $folder_id -param_action overwrite
 
         # add the admin portlet
-	set admin_portal_id [dotlrn_community::get_admin_portal_id -community_id $new_community_id]
-	dotlrn_homework_admin_portlet::add_self_to_page -portal_id $admin_portal_id -package_id $package_id \
+        set admin_portal_id [dotlrn_community::get_admin_portal_id -community_id $new_community_id]
+        dotlrn_homework_admin_portlet::add_self_to_page -portal_id $admin_portal_id -package_id $package_id \
             -folder_id $folder_id -param_action overwrite
 
         return $package_id

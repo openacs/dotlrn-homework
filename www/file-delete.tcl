@@ -6,7 +6,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     file_id:integer,notnull
-    {confirmed_p:boolean "f"}
+    {confirmed_p:boolean,notnull f}
 } -validate {
     valid_file -requires {file_id} {
 	if {![fs_file_p $file_id]} {
@@ -29,16 +29,16 @@ permission::require_permission -object_id $file_id -privilege delete
 
 set user_id [ad_conn user_id]
 
-set blocked_p [ad_decode [db_string blockers "
-select count(*) 
-from   cr_revisions
-where  item_id = :file_id
-and    acs_permission.permission_p(revision_id,:user_id,'delete') = 'f'"] 0 f t]
+set blocked_p [ad_decode [db_string blockers {
+    select count(*) 
+    from   cr_revisions
+    where  item_id = :file_id
+    and    acs_permission.permission_p(revision_id,:user_id,'delete') = 'f'}] 0 f t]
 
-if {$confirmed_p == "t" && $blocked_p == "f" } {
+if {$confirmed_p && $blocked_p == "f" } {
     # they confirmed that they want to delete the file
 
-    db_1row parent_id "select parent_id from cr_items where item_id = :file_id"
+    db_1row parent_id {select parent_id from cr_items where item_id = :file_id}
 
     db_transaction {
 
@@ -49,10 +49,10 @@ if {$confirmed_p == "t" && $blocked_p == "f" } {
 
         db_dml version_perms_delete {}
 
-        db_exec_plsql delete_file "
+        db_exec_plsql delete_file {
         begin
             file_storage.delete_file(:file_id);
-        end;"
+        end;}
 
     }
 
@@ -64,7 +64,6 @@ if {$confirmed_p == "t" && $blocked_p == "f" } {
     db_1row file_name {}
 
     set title [dotlrn_homework::decode_name $title]
-
     set context_bar [list [_ dotlrn-homework.Delete]]
 
     ad_return_template

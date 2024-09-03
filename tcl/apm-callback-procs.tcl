@@ -157,6 +157,21 @@ ad_proc -private dotlrn_homework::apm_callbacks::package_install {} {
     }
 }
 
+ad_proc -private dotlrn_homework::apm_callbacks::after_instantiate {
+    -package_id:required
+} {
+
+    Post package instantiation procedure to insert a package_id,
+    folder_id pair in fs_root_folders.   The homework package wants its own root folder
+    because we don't want it to be visible to any mounted instance of file storage.
+
+    This proc is automatically called by the APM whenever an instance of dotlrn_homework
+    is mounted.
+
+} {
+    return [fs::new_root_folder -package_id $package_id]
+}
+
 ad_proc -private dotlrn_homework::apm_callbacks::package_uninstall {} {
 
     Delete dotLRN stuff defined in package_install above

@@ -48,11 +48,11 @@
           <tr class="z_light">
         </else>
       <if @folders.content_type@ eq "content_folder">
-          <td align="left">@folders.spaces;noquote@<img style="border:0" src="@file_storage_url@/graphics/folder.gif" alt="#file-storage.Folder#"></td>
+          <td align="left">@folders.spaces;noquote@<adp:icon name="folder" title="#file-storage.Folder#"></td>
           <td colspan="3"><a href="@folders.contents_url@">@folders.name@</a></td>
       </if>
       <else>
-          <td align="left">@folders.spaces;noquote@<a href="@folders.download_url@"><img style="border:0" src="@file_storage_url@/graphics/file.gif"></a></td>
+          <td align="left">@folders.spaces;noquote@<a href="@folders.download_url@"><adp:icon name="file"></a></td>
           <td><a href="@folders.download_url@">@folders.name@</a><br><if @folders.name@ ne @folders.title@><span style="color: \#999;">@folders.title@</span></if></td>
           <td>
             <if @show_users_p;literal@ true>

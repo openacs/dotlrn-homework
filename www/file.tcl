@@ -12,7 +12,7 @@ ad_page_contract {
 } {
     file_id:integer,notnull
     folder_id:integer,notnull
-    {show_all_versions_p:boolean "f"}
+    {show_all_versions_p:boolean,notnull f}
 } -validate {
     valid_file -requires {file_id} {
 	if {![fs_file_p $file_id]} {
@@ -53,7 +53,7 @@ set move_url [export_vars -base file-move {file_id name}]
 # idea so I'm not putting out a link to it.   As of July Sloan agrees.
 set copy_url [export_vars -base file-copy {file_id name}]
 
-if {$show_all_versions_p == "t"} {
+if {$show_all_versions_p} {
     set show_versions [db_map show_all_versions]
 } else {
     set show_versions [db_map show_live_version]

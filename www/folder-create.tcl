@@ -49,7 +49,7 @@ ad_form -name homework_form -form {
         db_exec_plsql folder_create {}
 
     } on_error {
-	ad_return_exception_template -params {errmsg} "/packages/acs-subsite/www/shared/db-error"
+	ad_return_exception_template -params {errmsg} "/packages/acs-subsite/lib/shared/db-error"
     }
 
     ad_returnredirect $return_url

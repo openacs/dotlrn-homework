@@ -58,10 +58,10 @@ namespace eval dotlrn_homework_portlet {
         ns_set put $args folder_id 0
         ns_set put $args param_action "overwrite"
 
-        add_portlet_helper $portal_id $args        
+        add_portlet_helper $portal_id $args
     }
 
-    
+
     ad_proc -public remove_portlet {
         {-portal_id:required}
     } {
@@ -70,7 +70,7 @@ namespace eval dotlrn_homework_portlet {
     } {
         ad_return_complaint 1  "[applet_key] remove_portlet not implemented!"
     }
-    
+
     ad_proc -public add_portlet_helper {
         portal_id
         args
@@ -91,7 +91,7 @@ namespace eval dotlrn_homework_portlet {
         {-folder_id:required}
         {-param_action:required}
     } {
-        Adds a homework PE to the given page. 
+        Adds a homework PE to the given page.
 
         @param portal_id The page to add self to
         @param folder_id The homework folder to associate with this portlet
@@ -171,7 +171,7 @@ namespace eval dotlrn_homework_admin_portlet {
         {-folder_id:required}
         {-param_action:required}
     } {
-        Adds a homework PE to the given page. 
+        Adds a homework PE to the given page.
 
         @param portal_id The page to add self to
         @param folder_id The homework folder to associate with this portlet

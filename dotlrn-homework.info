@@ -6,27 +6,30 @@
     <pretty-plural>dotLRN Homework</pretty-plural>
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
-
-    <version name="2.10.0d0" url="http://openacs.org/repository/download/apm/dotlrn-homework-2.10.0d0.apm">
+    <implements-subsite-p>f</implements-subsite-p>
+    <inherit-templates-p>t</inherit-templates-p>
+    
+    <version name="2.10.1" url="http://openacs.org/repository/download/apm/dotlrn-homework-2.10.1.apm">
         <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
         <summary>Provides a homework assignment dropboxes for dotLRN classes.</summary>
-        <release-date>2017-08-06</release-date>
+        <release-date>2024-09-02</release-date>
         <vendor url="http://dotlrn.org">DotLRN Consortium</vendor>
         <maturity>2</maturity>
 
-        <provides url="dotlrn-homework" version="2.10.0d0"/>
-        <requires url="dotlrn" version="2.10.0d0"/>
-        <requires url="dotlrn-fs" version="2.10.0d0"/>
-        <requires url="new-portal" version="2.10.0d0"/>
+        <provides url="dotlrn-homework" version="2.10.1"/>
+        <requires url="dotlrn" version="2.10.1"/>
+        <requires url="dotlrn-fs" version="2.10.1"/>
+        <requires url="new-portal" version="2.10.1"/>
+        <requires url="acs-subsite" version="5.10.1"/>
 
         <callbacks>
-            <callback type="after-install"  proc="dotlrn_homework::apm_callbacks::package_install"/>
             <callback type="before-uninstall"  proc="dotlrn_homework::apm_callbacks::package_uninstall"/>
+            <callback type="after-install"  proc="dotlrn_homework::apm_callbacks::package_install"/>
+            <callback type="after-instantiate"  proc="dotlrn_homework::apm_callbacks::after_instantiate"/>
         </callbacks>
-
         <parameters>
-            <parameter datatype="number"  min_n_values="1"  max_n_values="1"  name="MaximumFileSize"  default="20000000" description="&quot;The maximum size, in bytes, of files that users are allowed to upload"/>
-            <parameter datatype="number"  min_n_values="1"  max_n_values="1"  name="StoreFilesInDatabaseP"  default="1" description="Flag to determine the storage type. A flag of 1 (true) will store the files in the database. If 0 (false) files are stored in the filesystem. ***This parameter should only be changed at package instance creation.***"/>
+            <parameter scope="instance" datatype="number"  min_n_values="1"  max_n_values="1"  name="MaximumFileSize"  default="20000000" description="&#34;The maximum size, in bytes, of files that users are allowed to upload"/>
+            <parameter scope="instance" datatype="number"  min_n_values="1"  max_n_values="1"  name="StoreFilesInDatabaseP"  default="1" description="Flag to determine the storage type. A flag of 1 (true) will store the files in the database. If 0 (false) files are stored in the filesystem. ***This parameter should only be changed at package instance creation.***"/>
         </parameters>
 
     </version>
